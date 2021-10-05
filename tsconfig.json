@@ -1,0 +1,23 @@
+{
+  "include": ["src"],
+  "exclude": ["dist/*"],
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "sourceMap": true,
+    "baseUrl": "./",
+    "paths": {
+      "src/*": ["src/*"]
+    },
+    "noEmit": false,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "strict": false,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "importsNotUsedAsValues": "error"
+  }
+}
