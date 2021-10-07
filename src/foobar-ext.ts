@@ -7,12 +7,6 @@ const myThing = (
   sectionBundle: any,
   Schema: any
 ) => {
-  const schema = Schema.object({
-    // TODO: save crop settings
-    src: Schema.string(),
-    transformedSrc: Schema.string(),
-    alt: Schema.string(),
-  });
   return bundle({
     componentTypeId: "foobar",
     displayName: "Foobar",
