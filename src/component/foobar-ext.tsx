@@ -1,8 +1,8 @@
-// import type { ThirdPartyExtensionScript } from "../../content-creation-editor/src/editor/extensions/utils";
+import type { ThirdPartyExtensionScript } from "../../../content-creation-editor/src/editor/extensions/utils";
 import React from "react";
 
-export default (bundle: any, sectionBundle: any, Schema: any) => {
-  return bundle({
+const foobar: ThirdPartyExtensionScript = ({ component }, Schema) => {
+  return component({
     componentTypeId: "foobar",
     displayName: "Foobar",
     schema: Schema.object({
@@ -28,3 +28,5 @@ export default (bundle: any, sectionBundle: any, Schema: any) => {
     },
   });
 };
+
+export default foobar;
