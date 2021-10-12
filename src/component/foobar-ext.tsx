@@ -1,12 +1,7 @@
 // import type { ThirdPartyExtensionScript } from "../../content-creation-editor/src/editor/extensions/utils";
 import React from "react";
 
-const myThing = (
-  OtherReact: any,
-  bundle: any,
-  sectionBundle: any,
-  Schema: any
-) => {
+export default (bundle: any, sectionBundle: any, Schema: any) => {
   return bundle({
     componentTypeId: "foobar",
     displayName: "Foobar",
@@ -16,7 +11,7 @@ const myThing = (
         .overrideControls([
           {
             Control: () => {
-              return React.createElement("div", null, "My foobar stuff");
+              return <div>My foobar stuff</div>;
             },
           },
         ])
@@ -29,9 +24,7 @@ const myThing = (
     Component({ data, dispatch }: any) {
       data.formId;
       // dispatch((api) => api.get("formId").set("test"));
-      return React.createElement("div", null, "Foobar Component Placeholder");
+      return <div>Foobar Component Placeholder</div>;
     },
   });
 };
-
-export default myThing;

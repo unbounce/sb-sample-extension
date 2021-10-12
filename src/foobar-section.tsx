@@ -211,6 +211,6 @@ const FoobarSection = {
   },
 };
 
-export default (React: any, bundle: any, section: any, Schema: any) => {
+export default (bundle: any, section: any, Schema: any) => {
   return section.bundle({ ...FoobarSection, tags: ["section"] });
 };
