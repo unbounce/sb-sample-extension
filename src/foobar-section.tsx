@@ -1,3 +1,5 @@
+import { ThirdPartyExtensionScript } from "../../content-creation-editor/src/editor/extensions/utils";
+
 const FoobarSection = {
   contentTypeId: "foobar-section",
   displayName: "Foobar Section",
@@ -211,6 +213,8 @@ const FoobarSection = {
   },
 };
 
-export default (React: any, bundle: any, section: any, Schema: any) => {
+const section: ThirdPartyExtensionScript = ({ section }) => {
   return section.bundle({ ...FoobarSection, tags: ["section"] });
 };
+
+export default section;
