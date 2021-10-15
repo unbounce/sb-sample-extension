@@ -1,5 +1,3 @@
-import { ThirdPartyExtensionScript } from "../../content-creation-editor/src/editor/extensions/utils";
-
 const FoobarSection = {
   contentTypeId: "foobar-section",
   displayName: "Foobar Section",
@@ -213,7 +211,7 @@ const FoobarSection = {
   },
 };
 
-const section: ThirdPartyExtensionScript = ({ section }) => {
+const section = ({ section }: any) => {
   return section.bundle({ ...FoobarSection, tags: ["section"] });
 };
 

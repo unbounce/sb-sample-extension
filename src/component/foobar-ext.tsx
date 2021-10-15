@@ -1,12 +1,10 @@
-import type { ThirdPartyExtensionScript } from "../../../content-creation-editor/src/editor/extensions/utils";
 import React from "react";
 
-const foobar: ThirdPartyExtensionScript = ({ component }, Schema) => {
+const foobar = ({ component }: any, Schema: any) => {
   return component({
     componentTypeId: "foobar",
     displayName: "Foobar",
     schema: Schema.object({
-      // TODO: Only demo for now
       formId: Schema.string()
         .overrideControls([
           {
