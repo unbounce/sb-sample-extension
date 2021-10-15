@@ -1,16 +1,16 @@
-const FoobarSection = {
-  contentTypeId: "foobar-section",
-  displayName: "Foobar Section",
+const HelloWorldSection = {
+  contentTypeId: "helloWorld-section",
+  displayName: "HelloWorld Section",
   templates: {
     children: {
       id: "children",
-      name: "Foobar",
-      defaultLayoutId: "foobar001Lg",
+      name: "HelloWorld",
+      defaultLayoutId: "helloWorld001Lg",
       renderer: "grid",
       layouts: {
-        foobar001Lg: {
-          id: "foobar001Lg",
-          displayName: "Foobar Desktop",
+        helloWorld001Lg: {
+          id: "helloWorld001Lg",
+          displayName: "HelloWorld Desktop",
           data: {
             columns: { type: "auto", count: 12 },
             columnGap: 12,
@@ -78,9 +78,9 @@ const FoobarSection = {
             },
           },
         },
-        foobar001Sm: {
-          id: "foobar001Sm",
-          displayName: "Foobar Mobile",
+        helloWorld001Sm: {
+          id: "helloWorld001Sm",
+          displayName: "HelloWorld Mobile",
           data: {
             columns: { type: "auto", count: 12 },
             columnGap: 12,
@@ -154,7 +154,7 @@ const FoobarSection = {
           placeholder: {
             contentTypeId: "heading1",
             data: {
-              value: "Foobar Section",
+              value: "HelloWorld Section",
             },
             overrides: {},
           },
@@ -168,7 +168,7 @@ const FoobarSection = {
                   type: "paragraph",
                   children: [
                     {
-                      text: "Add a super powered form to your page using Foobar.",
+                      text: "Add a super powered form to your page using HelloWorld.",
                     },
                   ],
                 },
@@ -179,8 +179,11 @@ const FoobarSection = {
         },
         form: {
           placeholder: {
-            contentTypeId: "foobar",
-            data: {},
+            contentTypeId: "helloWorld",
+            data: {
+              firstName: "FirstName",
+              lastName: "LastName",
+            },
             overrides: {},
           },
         },
@@ -188,13 +191,13 @@ const FoobarSection = {
       options: {
         "001": {
           id: "001",
-          displayName: "Foobar 1",
+          displayName: "HelloWorld 1",
           breakpoints: {
             lg: {
-              layoutId: "foobar001Lg",
+              layoutId: "helloWorld001Lg",
             },
             sm: {
-              layoutId: "foobar001Sm",
+              layoutId: "helloWorld001Sm",
             },
           },
         },
@@ -212,7 +215,7 @@ const FoobarSection = {
 };
 
 const section = ({ section }: any) => {
-  return section.bundle({ ...FoobarSection, tags: ["section"] });
+  return section.bundle({ ...HelloWorldSection, tags: ["section"] });
 };
 
 export default section;
