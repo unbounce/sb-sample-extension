@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { ChangeFirstNameModal } from "./change-first-name-modal";
 
-export default ({ component }: any, Schema: any) => {
+const bundleMethod = ({ component }: any, Schema: any) => {
   return component({
     componentTypeId: "helloWorld",
     displayName: "HelloWorld",
@@ -37,3 +37,11 @@ export default ({ component }: any, Schema: any) => {
     },
   });
 };
+function init() {
+  window["ub"] = {
+    externalApo: {
+      bundleMethod,
+    },
+  };
+}
+init();

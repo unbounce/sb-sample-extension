@@ -1,28 +1,18 @@
 import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
 import path from "path";
-import nodePolyfills from "rollup-plugin-node-polyfills";
 const fs = require("fs");
 
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
-const externals = {
-  react: "React",
-};
-const outputBuildDirectory = "esm";
+const outputBuildDirectory = "commonjs";
 
 const commonBuildProcess = {
-  // TODO figure out how to make this work with runtime. Would give an error that it can't find React when importing the file at runtime
-  //external: Object.keys(externals),
   plugins: [
     // A Rollup plugin which locates modules using the Node resolution algorithm, for using third party modules in node_modules
     resolve({ extensions, preferBuiltins: true }),
-    // to convert CommonJS modules to ES6, so they can be included in a Rollup bundle, use with resolve plugin
-    commonjs({ sourceMap: false }),
     babel({
       babelrc: false,
-      // Should be runtime once we use external
-      babelHelpers: "bundled",
+      babelHelpers: "runtime",
       extensions: extensions,
       include: ["./src/**/*", "./src/*"],
       exclude: "node_modules/**",
@@ -43,13 +33,11 @@ const commonBuildProcess = {
         ],
       ],
       plugins: [
-        // Should be uncommented once we use externals
-        //"@babel/transform-runtime",
+        "@babel/transform-runtime",
         "@babel/plugin-proposal-class-properties",
         "@babel/plugin-syntax-dynamic-import",
       ],
     }),
-    nodePolyfills(),
   ],
 };
 
@@ -108,11 +96,10 @@ export default [
       {
         dir: outputBuildDirectory,
         entryFileNames: "[name].js",
-        format: "esm",
+        format: "cjs",
         sourcemap: true,
       },
     ],
-    external: commonBuildProcess.external,
     plugins: [...commonBuildProcess.plugins],
   },
 ];

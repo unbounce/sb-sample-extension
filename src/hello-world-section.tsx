@@ -218,4 +218,11 @@ const section = ({ section }: any) => {
   return section.bundle({ ...HelloWorldSection, tags: ["section"] });
 };
 
-export default section;
+function init() {
+  window["ub"] = {
+    externalApo: {
+      bundleMethod: section,
+    },
+  };
+}
+init();

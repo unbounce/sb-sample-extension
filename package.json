@@ -10,15 +10,17 @@
     "last 2 versions"
   ],
   "scripts": {
-    "clean:esm": "rm -rf esm",
-    "build": "npm run clean:esm && rollup -c"
+    "clean:commonjs": "rm -rf commonjs",
+    "build": "npm run clean:commonjs && rollup -c"
   },
   "engines": {
     "node": ">=14.0.0",
     "npm": ">=7"
   },
+  "peerDependencies": {
+    "react": "^17.0.2"
+  },
   "dependencies": {
-    "react": "^17.0.2",
     "styled-components": "^5.2.3"
   },
   "devDependencies": {
@@ -37,6 +39,7 @@
     "@types/styled-components": "^5.1.15",
     "babel-loader": "^8.0.6",
     "rollup": "^2.32.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-node-polyfills": "^0.2.1",
     "typescript": "^4.3.2"
   }
