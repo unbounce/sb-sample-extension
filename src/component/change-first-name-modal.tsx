@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from "config/global-dependencies/react";
+import styled from "config/global-dependencies/styled";
+const { useState } = React;
 
 interface Props {
   firstName: string;
