@@ -1,3 +1,5 @@
+import { exportBuildMethod } from "../config/utils/export-build-method";
+
 const HelloWorldSection = {
   contentTypeId: "helloWorld-section",
   displayName: "HelloWorld Section",
@@ -214,12 +216,6 @@ const HelloWorldSection = {
   },
 };
 
-const section = ({ section }: any) => {
+exportBuildMethod(({ section }: any) => {
   return section.bundle({ ...HelloWorldSection, tags: ["section"] });
-};
-
-window["ub"] = {
-  externalApp: {
-    bundleMethod: section,
-  },
-};
+});

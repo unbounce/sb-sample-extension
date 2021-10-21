@@ -1,4 +1,5 @@
 import { ChangeFirstNameModal } from "./change-first-name-modal";
+import { exportBuildMethod } from "config/utils/export-build-method";
 import React from "config/global-dependencies/react";
 const { useState } = React;
 
@@ -38,8 +39,4 @@ const bundleMethod = ({ component }: any, Schema: any) => {
   });
 };
 
-window["ub"] = {
-  externalApp: {
-    bundleMethod,
-  },
-};
+exportBuildMethod(bundleMethod);
