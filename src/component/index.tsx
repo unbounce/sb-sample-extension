@@ -1,6 +1,7 @@
 import { ChangeFirstNameModal } from "./change-first-name-modal";
 import { exportBuildMethod } from "config/utils/export-build-method";
 import React from "config/global-dependencies/react";
+import { migrations } from "./migrations";
 const { useState } = React;
 
 const bundleMethod = ({ component }: any, Schema: any) => {
@@ -9,7 +10,36 @@ const bundleMethod = ({ component }: any, Schema: any) => {
     displayName: "HelloWorld",
     schema: Schema.object({
       firstName: Schema.string().noControls(),
-      lastName: Schema.string(),
+      lastName: Schema.string().groupControls({
+        icon: <span>LN</span>,
+        label: "Last Name",
+      }),
+      styles: Schema.object({
+        textAlign: Schema.style("text-align", {
+          layoutSpecific: true,
+        }).overrideControls([
+          {
+            Control: ({ data, dispatch }: any) => {
+              const onChange = (value: string) => {
+                dispatch((api: any) => api.set(value));
+              };
+
+              return (
+                <div>
+                  <button onClick={() => onChange("left")}>Left</button>
+                  <button onClick={() => onChange("center")}>Center</button>
+                  <button onClick={() => onChange("right")}>Right</button>
+                </div>
+              );
+            },
+            options: {
+              icon: <span>TA</span>,
+              label: "Text Align",
+              type: "subtoolbar",
+            },
+          },
+        ]),
+      }).mapData((data: any) => Object.values(data).join(" ")),
     }),
     Component({ data, dispatch }: any) {
       const { firstName, lastName } = data;
@@ -17,11 +47,12 @@ const bundleMethod = ({ component }: any, Schema: any) => {
 
       const updateFirstName = (newFirstName: string) => {
         dispatch((api: any) => api.get("firstName").set(newFirstName));
+        setShowModal(false);
       };
 
       return (
         <>
-          <div>
+          <div className={data.styles}>
             Hello,{" "}
             <button onClick={() => setShowModal(true)}>{firstName}</button>{" "}
             {lastName}
@@ -36,6 +67,8 @@ const bundleMethod = ({ component }: any, Schema: any) => {
         </>
       );
     },
+    version: migrations.length,
+    migrations,
   });
 };
 

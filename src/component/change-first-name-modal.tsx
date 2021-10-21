@@ -9,27 +9,35 @@ interface Props {
 }
 
 const CloseButton = styled.button`
+  align-items: center;
   background: #252525;
+  border: none;
   color: #fff;
-  right: 0;
+  display: flex;
+  font-size: 30px;
+  height: 50px;
+  justify-content: center;
+  line-height: 30px;
+  padding: 0;
   position: absolute;
+  right: 0;
   top: 0;
-  font-size: 50px;
+  width: 50px;
 `;
 
 const Modal = styled.div`
   background: #fff;
+  display: flex;
+  flex-direction: column;
   height: 200px;
+  justify-content: center;
   left: 50%;
+  padding: 30px;
   position: fixed;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 300px;
   z-index: 23;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
 `;
 
 const Overlay = styled.div`
@@ -54,11 +62,14 @@ export const ChangeFirstNameModal = ({
       <Modal>
         <CloseButton onClick={onClose}>x</CloseButton>
         <label>First Name:</label>
+        <br />
         <input
           type="text"
           value={localFirstName}
           onChange={({ currentTarget: { value } }) => setLocalFirstName(value)}
         />
+        <br />
+        <button onClick={(e) => onUpdate(localFirstName)}>Save</button>
       </Modal>
       <Overlay />
     </>

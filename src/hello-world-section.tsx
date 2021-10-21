@@ -60,12 +60,12 @@ const HelloWorldSection = {
                 y: "center",
               },
             },
-            form: {
+            helloWorld: {
               order: 2,
               visible: true,
               column: {
-                start: 4,
-                end: 10,
+                start: 5,
+                end: 9,
               },
               padding: {
                 top: 0,
@@ -130,7 +130,7 @@ const HelloWorldSection = {
                 y: "stretch",
               },
             },
-            form: {
+            helloWorld: {
               order: 2,
               visible: true,
               column: {
@@ -156,7 +156,10 @@ const HelloWorldSection = {
           placeholder: {
             contentTypeId: "heading1",
             data: {
-              value: "HelloWorld Section",
+              value: "Hello World Section",
+              styles: {
+                textAlign: "center",
+              },
             },
             overrides: {},
           },
@@ -170,7 +173,7 @@ const HelloWorldSection = {
                   type: "paragraph",
                   children: [
                     {
-                      text: "Add a super powered form to your page using HelloWorld.",
+                      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                     },
                   ],
                 },
@@ -179,12 +182,15 @@ const HelloWorldSection = {
             overrides: {},
           },
         },
-        form: {
+        helloWorld: {
           placeholder: {
             contentTypeId: "helloWorld",
             data: {
               firstName: "FirstName",
               lastName: "LastName",
+              styles: {
+                textAlign: "center",
+              },
             },
             overrides: {},
           },
