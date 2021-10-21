@@ -1,8 +1,7 @@
 import { ChangeFirstNameModal } from "./change-first-name-modal";
 import { exportBuildMethod } from "config/utils/export-build-method";
-import React from "config/global-dependencies/react";
+import React, { useState } from "config/global-dependencies/react";
 import { migrations } from "./migrations";
-const { useState } = React;
 
 const bundleMethod = ({ component }: any, Schema: any) => {
   return component({
