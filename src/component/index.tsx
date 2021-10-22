@@ -32,7 +32,16 @@ const bundleMethod = ({ component }: any, Schema: any) => {
               );
             },
             options: {
-              icon: <span>TA</span>,
+              icon: (
+                <svg width="24" height="24" viewBox="0 0 24 20" fill="none">
+                  <g>
+                    <path d="M24 0H0V1.25H24V0Z" fill="#565656"></path>
+                    <path d="M16 6H0V7.25H16V6Z" fill="#565656"></path>
+                    <path d="M24 12H0V13.25H24V12Z" fill="#565656"></path>
+                    <path d="M16 18H0V19.25H16V18Z" fill="#565656"></path>
+                  </g>
+                </svg>
+              ),
               label: "Text Align",
               type: "subtoolbar",
             },
