@@ -13,15 +13,18 @@
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
+    "baseUrl": "./",
+    "paths": {
+      "config/*": ["config/*"]
+    },
     "typeRoots": ["./node_modules/@types"],
     "declaration": false,
     "resolveJsonModule": true,
     "keyofStringsOnly": true,
     "esModuleInterop": true,
     "noUnusedLocals": true,
-    "moduleResolution": "node",
+    "moduleResolution": "node"
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules"]
 }
-

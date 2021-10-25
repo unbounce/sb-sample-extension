@@ -1,16 +1,18 @@
-const FoobarSection = {
-  contentTypeId: "foobar-section",
-  displayName: "Foobar Section",
+import { exportBuildMethod } from "../config/utils/export-build-method";
+
+const HelloWorldSection = {
+  contentTypeId: "helloWorld-section",
+  displayName: "HelloWorld Section",
   templates: {
     children: {
       id: "children",
-      name: "Foobar",
-      defaultLayoutId: "foobar001Lg",
+      name: "HelloWorld",
+      defaultLayoutId: "helloWorld001Lg",
       renderer: "grid",
       layouts: {
-        foobar001Lg: {
-          id: "foobar001Lg",
-          displayName: "Foobar Desktop",
+        helloWorld001Lg: {
+          id: "helloWorld001Lg",
+          displayName: "HelloWorld Desktop",
           data: {
             columns: { type: "auto", count: 12 },
             columnGap: 12,
@@ -58,12 +60,12 @@ const FoobarSection = {
                 y: "center",
               },
             },
-            form: {
+            helloWorld: {
               order: 2,
               visible: true,
               column: {
-                start: 4,
-                end: 10,
+                start: 5,
+                end: 9,
               },
               padding: {
                 top: 0,
@@ -78,9 +80,9 @@ const FoobarSection = {
             },
           },
         },
-        foobar001Sm: {
-          id: "foobar001Sm",
-          displayName: "Foobar Mobile",
+        helloWorld001Sm: {
+          id: "helloWorld001Sm",
+          displayName: "HelloWorld Mobile",
           data: {
             columns: { type: "auto", count: 12 },
             columnGap: 12,
@@ -128,7 +130,7 @@ const FoobarSection = {
                 y: "stretch",
               },
             },
-            form: {
+            helloWorld: {
               order: 2,
               visible: true,
               column: {
@@ -154,7 +156,10 @@ const FoobarSection = {
           placeholder: {
             contentTypeId: "heading1",
             data: {
-              value: "Foobar Section",
+              value: "Hello World Section",
+              styles: {
+                textAlign: "center",
+              },
             },
             overrides: {},
           },
@@ -168,7 +173,7 @@ const FoobarSection = {
                   type: "paragraph",
                   children: [
                     {
-                      text: "Add a super powered form to your page using Foobar.",
+                      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                     },
                   ],
                 },
@@ -177,10 +182,16 @@ const FoobarSection = {
             overrides: {},
           },
         },
-        form: {
+        helloWorld: {
           placeholder: {
-            contentTypeId: "foobar",
-            data: {},
+            contentTypeId: "helloWorld",
+            data: {
+              firstName: "FirstName",
+              lastName: "LastName",
+              styles: {
+                textAlign: "center",
+              },
+            },
             overrides: {},
           },
         },
@@ -188,13 +199,13 @@ const FoobarSection = {
       options: {
         "001": {
           id: "001",
-          displayName: "Foobar 1",
+          displayName: "HelloWorld 1",
           breakpoints: {
             lg: {
-              layoutId: "foobar001Lg",
+              layoutId: "helloWorld001Lg",
             },
             sm: {
-              layoutId: "foobar001Sm",
+              layoutId: "helloWorld001Sm",
             },
           },
         },
@@ -211,8 +222,6 @@ const FoobarSection = {
   },
 };
 
-const section = ({ section }: any) => {
-  return section.bundle({ ...FoobarSection, tags: ["section"] });
-};
-
-export default section;
+exportBuildMethod(({ section }: any) => {
+  return section.bundle({ ...HelloWorldSection, tags: ["section"] });
+});
