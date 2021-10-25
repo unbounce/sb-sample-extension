@@ -5,7 +5,7 @@ import { migrations } from "./migrations";
 
 const bundleMethod = ({ component }: any, Schema: any) => {
   return component({
-    componentTypeId: "helloWorld",
+    componentTypeId: "helloWorld", // This is the id for your component in our system, must be camelCase. It is used to reference the component in places like templates
     displayName: "HelloWorld",
     schema: Schema.object({
       firstName: Schema.string().noControls(),
@@ -43,7 +43,7 @@ const bundleMethod = ({ component }: any, Schema: any) => {
                 </svg>
               ),
               label: "Text Align",
-              type: "subtoolbar",
+              type: "subtoolbar", // This is where/how the control panel will be displayed
             },
           },
         ]),
