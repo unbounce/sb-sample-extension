@@ -1,4 +1,4 @@
-import { exportBuildMethod } from "../config/utils/export-build-method";
+import { exportSection } from "../config/utils/export-build-method";
 
 const HelloWorldSection = {
   contentTypeId: "helloWorld-section",
@@ -222,6 +222,6 @@ const HelloWorldSection = {
   },
 };
 
-exportBuildMethod(({ section }: any) => {
-  return section.bundle({ ...HelloWorldSection, tags: ["section"] });
+exportSection((section: any) => {
+  return section({ ...HelloWorldSection, tags: ["section"] });
 });

@@ -1,9 +1,9 @@
 import { ChangeFirstNameModal } from "./change-first-name-modal";
-import { exportBuildMethod } from "config/utils/export-build-method";
+import { exportComponent } from "config/utils/export-build-method";
 import React, { useState } from "config/global-dependencies/react";
 import { migrations } from "./migrations";
 
-const bundleMethod = ({ component }: any, Schema: any) => {
+const bundleMethod = (component: any, Schema: any) => {
   return component({
     componentTypeId: "helloWorld", // This is the id for your component in our system, must be camelCase. It is used to reference the component in places like templates
     displayName: "HelloWorld",
@@ -80,4 +80,4 @@ const bundleMethod = ({ component }: any, Schema: any) => {
   });
 };
 
-exportBuildMethod(bundleMethod);
+exportComponent(bundleMethod);
