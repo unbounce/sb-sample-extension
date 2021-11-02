@@ -80,6 +80,11 @@ module.exports = {
     extensions: [".js", ".tsx", ".ts"],
     alias: {
       config: path.resolve(__dirname, "./config"),
+      react: path.resolve(__dirname, "./config/global-dependencies/react.ts"),
+      "react-dom": path.resolve(
+        __dirname,
+        "./config/global-dependencies/react-dom.ts"
+      ),
     },
   },
 };
