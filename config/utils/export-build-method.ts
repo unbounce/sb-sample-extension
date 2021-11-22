@@ -9,7 +9,7 @@ export function exportComponent(bundleMethod: any) {
 export function exportSection(bundleMethod: any) {
   (window as any)["ub"] = {
     externalApp: {
-      section: ({ section }: any) => bundleMethod(section),
+      section: ({ section }: any, Schema: any) => bundleMethod(section, Schema),
     },
   };
 }

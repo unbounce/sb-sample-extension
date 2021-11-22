@@ -3,19 +3,18 @@ import { exportControl } from "../config/utils/export-build-method";
 
 exportControl(() => {
   return {
-    controlId: "textAlign",
-    Component: ({ data, dispatch }: any) => {
+    controlId: "extraMoreItem",
+    Component: ({ data, dispatch }: any, controls: any[]) => {
       return (
         <div>
-          {data}{" "}
           <button
             onClick={() => {
               dispatch((api: any) => {
-                api.set("right");
+                api.get("children").addSlot("text");
               });
             }}
           >
-            Click me
+            Add text slot
           </button>
         </div>
       );

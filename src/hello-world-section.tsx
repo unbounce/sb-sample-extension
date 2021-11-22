@@ -1,8 +1,10 @@
-import { exportSection } from "../config/utils/export-build-method";
+import React from "../config/global-dependencies/react";
+import {
+  exportComponent,
+  exportSection,
+} from "../config/utils/export-build-method";
 
 const HelloWorldSection = {
-  contentTypeId: "helloWorld-section",
-  displayName: "HelloWorld Section",
   templates: {
     children: {
       id: "children",
@@ -223,5 +225,11 @@ const HelloWorldSection = {
 };
 
 exportSection((section: any) => {
-  return section({ ...HelloWorldSection, tags: ["section"] });
+  return section({
+    contentTypeId: "helloWorld-section",
+    displayName: "HelloWorld Section",
+    tags: ["section"],
+    extraControls: ["extraMoreItem", "changeLayout"],
+    ...HelloWorldSection,
+  });
 });
