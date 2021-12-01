@@ -3,18 +3,19 @@ import { exportControl } from "../config/utils/export-build-method";
 
 exportControl(() => {
   return {
-    controlId: "extraMoreItem",
+    controlId: "textAlign2",
+    controlIdToOverwrite: "textAlign",
     Component: ({ data, dispatch }: any, controls: any[]) => {
       return (
         <div>
           <button
             onClick={() => {
               dispatch((api: any) => {
-                api.get("children").addSlot("text");
+                api.set("right");
               });
             }}
           >
-            Add text slot
+            Align right
           </button>
         </div>
       );
@@ -22,6 +23,7 @@ exportControl(() => {
     options: {
       icon: <>Test Icon</>,
       label: "Text Align Stuff",
+      overrideControls: true,
     },
   };
 });

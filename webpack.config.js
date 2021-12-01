@@ -32,23 +32,8 @@ const buildOtherEntryPath = () => {
   }
 };
 
-const buildMainEntryPath = () => {
-  try {
-    const filepaths = filePaths("src/component");
-    // the component folder could have multiple files, but we only need the index file path
-    // as that is the entry point
-    const { index: indexFilePath, ...paths } = filepaths;
-    return {
-      main: indexFilePath,
-    };
-  } catch (err) {
-    console.log(err);
-  }
-};
-
 module.exports = {
   entry: {
-    ...buildMainEntryPath(),
     ...buildOtherEntryPath(),
   },
   output: {

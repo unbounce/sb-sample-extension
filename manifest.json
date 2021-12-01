@@ -1,0 +1,17 @@
+{
+  "extensionId": "@external/helloWorld",
+  "version": "0.1",
+  "name": "Hello World",
+  "isBeta": true,
+  "sectionTabId": "helloWorld-section",
+  "description": "Hello World example",
+  "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/HelloWorld.svg",
+  "moreInfoUrl": "https://en.wikipedia.org/wiki/%22Hello,_World!%22_program",
+  "categories": [],
+  "include": [],
+  "externalScripts": [
+    "http://localhost:8081/hello-world.js",
+    "http://localhost:8081/hello-world-section.js",
+    "http://localhost:8081/control.js"
+  ]
+}

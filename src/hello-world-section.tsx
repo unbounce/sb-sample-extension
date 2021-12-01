@@ -1,8 +1,4 @@
-import React from "../config/global-dependencies/react";
-import {
-  exportComponent,
-  exportSection,
-} from "../config/utils/export-build-method";
+import { exportSection } from "../config/utils/export-build-method";
 
 const HelloWorldSection = {
   templates: {
@@ -229,7 +225,7 @@ exportSection((section: any) => {
     contentTypeId: "helloWorld-section",
     displayName: "HelloWorld Section",
     tags: ["section"],
-    extraControls: ["extraMoreItem", "changeLayout"],
+    //extraControls: ["extraMoreItem", "changeLayout"],
     ...HelloWorldSection,
   });
 });
