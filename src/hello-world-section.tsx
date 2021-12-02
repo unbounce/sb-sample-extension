@@ -225,7 +225,6 @@ exportSection((section: any) => {
     contentTypeId: "helloWorld-section",
     displayName: "HelloWorld Section",
     tags: ["section"],
-    //extraControls: ["extraMoreItem", "changeLayout"],
     ...HelloWorldSection,
   });
 });
