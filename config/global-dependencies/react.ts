@@ -1,5 +1,5 @@
-import type ReactType from "react";
-const react: typeof ReactType = window["react"];
+import type ReactType from 'react';
+const react: typeof ReactType = window['react'];
 export const {
   version,
   useState,
@@ -12,6 +12,7 @@ export const {
   createFactory,
   createRef,
   forwardRef,
+  Fragment,
   isValidElement,
   lazy,
   memo,
