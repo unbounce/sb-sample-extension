@@ -2,6 +2,6 @@
   "singleQuote": true,
   "trailingComma": "all",
   "printWidth": 120,
-  "importOrder": ["^src/vendor(.*)$", "^src/(.*)$", "^src/(.*)$", "^[./]"],
+  "importOrder": ["^config(.*)$", "^[./]"],
   "importOrderSeparation": true
 }
