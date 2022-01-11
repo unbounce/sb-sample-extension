@@ -1,8 +1,6 @@
 import React from 'config/global-dependencies/react';
 
-import { exportControl } from '../config/utils/export-build-method';
-
-exportControl(() => {
+export const Control = () => {
   return {
     controlId: 'textAlign2',
     controlIdToOverwrite: 'textAlign',
@@ -27,4 +25,4 @@ exportControl(() => {
       overrideControls: true,
     },
   };
-});
+};

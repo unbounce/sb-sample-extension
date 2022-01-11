@@ -1,40 +1,8 @@
 const path = require("path");
-const fs = require("fs");
-
-const removeSuffix = (str) => str.replace(/\.[^/.]+$/, "");
-
-const filePaths = (folderPath) => {
-  const absoluteFolderPath = path.resolve(__dirname, folderPath);
-
-  return fs.readdirSync(absoluteFolderPath).reduce(
-    (acc, file) => ({
-      ...acc,
-      [removeSuffix(file)]: `./${folderPath}/${file}`,
-    }),
-    {}
-  );
-};
-
-const buildOtherEntryPath = () => {
-  try {
-    const filepaths = filePaths("src");
-    // Styles and component are bundles modules, not root level individual and should not be exported
-    // this removes these  directories and return a copy of filepaths without them.
-    const {
-      styles: _styles,
-      component: _component,
-      "": db,
-      ...paths
-    } = filepaths;
-    return paths;
-  } catch (err) {
-    console.log(err);
-  }
-};
 
 module.exports = {
   entry: {
-    ...buildOtherEntryPath(),
+    index: './src/index.ts',
   },
   output: {
     path: path.resolve(__dirname, "dist"),
