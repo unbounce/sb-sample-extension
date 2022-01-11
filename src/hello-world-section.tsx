@@ -1,5 +1,3 @@
-import { exportSection } from "../config/utils/export-build-method";
-
 const HelloWorldSection = {
   templates: {
     children: {
@@ -220,11 +218,11 @@ const HelloWorldSection = {
   },
 };
 
-exportSection((section: any) => {
+export const Template = function(section: any) {
   return section({
     contentTypeId: "helloWorld-section",
     displayName: "HelloWorld Section",
     tags: ["section"],
     ...HelloWorldSection,
   });
-});
+};

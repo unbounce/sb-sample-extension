@@ -10,8 +10,6 @@
   "categories": [],
   "include": [],
   "externalScripts": [
-    "http://localhost:8081/hello-world.js",
-    "http://localhost:8081/hello-world-section.js",
-    "http://localhost:8081/control.js"
+    "http://localhost:8081/index.js"
   ]
 }
