@@ -51,6 +51,6 @@
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {
-    "smart-builder-sdk": "https://app-assets-unbounce-com.s3.amazonaws.com/content-smart-builder-apps/smart-builder-sdk-1.0.0.tgz"
+    "smart-builder-sdk": "https://app-assets-unbounce-com.s3.amazonaws.com/content-smart-builder-apps/smart-builder-sdk-1.0.0-prod.tgz"
   }
 }
