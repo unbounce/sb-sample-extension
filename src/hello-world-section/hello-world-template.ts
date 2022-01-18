@@ -1,16 +1,16 @@
-const HelloWorldSection = {
+export const HelloWorldTemplate = {
   templates: {
     children: {
-      id: "children",
-      name: "HelloWorld",
-      defaultLayoutId: "helloWorld001Lg",
-      renderer: "grid",
+      id: 'children',
+      name: 'HelloWorld',
+      defaultLayoutId: 'helloWorld001Lg',
+      renderer: 'grid',
       layouts: {
         helloWorld001Lg: {
-          id: "helloWorld001Lg",
-          displayName: "HelloWorld Desktop",
+          id: 'helloWorld001Lg',
+          displayName: 'HelloWorld Desktop',
           data: {
-            columns: { type: "auto", count: 12 },
+            columns: { type: 'auto', count: 12 },
             columnGap: 12,
             padding: {
               top: 85,
@@ -34,8 +34,8 @@ const HelloWorldSection = {
                 left: 0,
               },
               alignment: {
-                x: "center",
-                y: "center",
+                x: 'center',
+                y: 'center',
               },
             },
             description: {
@@ -52,8 +52,8 @@ const HelloWorldSection = {
                 left: 0,
               },
               alignment: {
-                x: "center",
-                y: "center",
+                x: 'center',
+                y: 'center',
               },
             },
             helloWorld: {
@@ -70,17 +70,17 @@ const HelloWorldSection = {
                 left: 0,
               },
               alignment: {
-                x: "stretch",
-                y: "stretch",
+                x: 'stretch',
+                y: 'stretch',
               },
             },
           },
         },
         helloWorld001Sm: {
-          id: "helloWorld001Sm",
-          displayName: "HelloWorld Mobile",
+          id: 'helloWorld001Sm',
+          displayName: 'HelloWorld Mobile',
           data: {
-            columns: { type: "auto", count: 12 },
+            columns: { type: 'auto', count: 12 },
             columnGap: 12,
             padding: {
               top: 20,
@@ -104,8 +104,8 @@ const HelloWorldSection = {
                 left: 0,
               },
               alignment: {
-                x: "stretch",
-                y: "stretch",
+                x: 'stretch',
+                y: 'stretch',
               },
             },
             description: {
@@ -122,8 +122,8 @@ const HelloWorldSection = {
                 left: 0,
               },
               alignment: {
-                x: "stretch",
-                y: "stretch",
+                x: 'stretch',
+                y: 'stretch',
               },
             },
             helloWorld: {
@@ -140,8 +140,8 @@ const HelloWorldSection = {
                 left: 0,
               },
               alignment: {
-                x: "stretch",
-                y: "stretch",
+                x: 'stretch',
+                y: 'stretch',
               },
             },
           },
@@ -150,11 +150,11 @@ const HelloWorldSection = {
       slots: {
         heading: {
           placeholder: {
-            contentTypeId: "heading1",
+            contentTypeId: 'heading1',
             data: {
-              value: "Hello World Section",
+              value: 'Hello World Section',
               styles: {
-                textAlign: "center",
+                textAlign: 'center',
               },
             },
             overrides: {},
@@ -162,11 +162,11 @@ const HelloWorldSection = {
         },
         description: {
           placeholder: {
-            contentTypeId: "text",
+            contentTypeId: 'text',
             data: {
               value: [
                 {
-                  type: "paragraph",
+                  type: 'paragraph',
                   children: [
                     {
                       text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -180,12 +180,12 @@ const HelloWorldSection = {
         },
         helloWorld: {
           placeholder: {
-            contentTypeId: "helloWorld",
+            contentTypeId: 'helloWorld',
             data: {
-              firstName: "FirstName",
-              lastName: "LastName",
+              firstName: 'FirstName',
+              lastName: 'LastName',
               styles: {
-                textAlign: "center",
+                textAlign: 'center',
               },
             },
             overrides: {},
@@ -193,15 +193,15 @@ const HelloWorldSection = {
         },
       },
       options: {
-        "001": {
-          id: "001",
-          displayName: "HelloWorld 1",
+        '001': {
+          id: '001',
+          displayName: 'HelloWorld 1',
           breakpoints: {
             lg: {
-              layoutId: "helloWorld001Lg",
+              layoutId: 'helloWorld001Lg',
             },
             sm: {
-              layoutId: "helloWorld001Sm",
+              layoutId: 'helloWorld001Sm',
             },
           },
         },
@@ -216,13 +216,4 @@ const HelloWorldSection = {
       },
     },
   },
-};
-
-export const Template = function(section: any) {
-  return section({
-    contentTypeId: "helloWorld-section",
-    displayName: "HelloWorld Section",
-    tags: ["section"],
-    ...HelloWorldSection,
-  });
 };

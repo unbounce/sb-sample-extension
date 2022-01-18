@@ -1,7 +1,7 @@
 import React, { useState } from 'config/global-dependencies/react';
 
-import { Modal, CloseButton, Overlay } from './styled';
-import { Props } from './types';
+import { Modal, CloseButton, Overlay } from '../styled';
+import { Props } from '../types';
 
 export const ChangeFirstNameModal = ({ firstName, onUpdate, onClose }: Props) => {
   const [localFirstName, setLocalFirstName] = useState(firstName);
