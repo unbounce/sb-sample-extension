@@ -1,4 +1,4 @@
-const registrationMethods = window['registrationMethods'];
+const registrationMethods = window['ub'];
 
 export const { registerComponent, registerSection, registerControl, registerHook } = registrationMethods;
 

@@ -36,7 +36,7 @@ module.exports = {
     'no-restricted-imports': [
       'error',
       {
-        paths: ['react', 'styled-components', '@unbounce/ui-componenets', 'react-dom'],
+        paths: ['@unbounce/ui-componenets'],
       },
     ],
   },

@@ -1,4 +1,4 @@
-import styled from "config/global-dependencies/styled";
+import styled from 'styled-components';
 
 export const CloseButton = styled.button`
   align-items: center;

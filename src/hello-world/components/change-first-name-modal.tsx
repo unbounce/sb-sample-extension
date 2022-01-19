@@ -1,7 +1,7 @@
-import React, { useState } from 'config/global-dependencies/react';
+import React, { useState } from 'react';
 
-import { Modal, CloseButton, Overlay } from './styled';
-import { Props } from './types';
+import { Modal, CloseButton, Overlay } from '../styled';
+import { Props } from '../types';
 
 export const ChangeFirstNameModal = ({ firstName, onUpdate, onClose }: Props) => {
   const [localFirstName, setLocalFirstName] = useState(firstName);
@@ -14,12 +14,15 @@ export const ChangeFirstNameModal = ({ firstName, onUpdate, onClose }: Props) =>
           <br />
           <input
             type="text"
+            data-testid="hello-world-first-name-input"
             value={localFirstName}
             onChange={({ currentTarget: { value } }) => setLocalFirstName(value)}
           />
         </label>
         <br />
-        <button onClick={() => onUpdate(localFirstName)}>Save</button>
+        <button data-testid="hello-world-save-btn" onClick={() => onUpdate(localFirstName)}>
+          Save
+        </button>
       </Modal>
       <Overlay />
     </>
