@@ -1,4 +1,4 @@
-import React from 'config/global-dependencies/react';
+import React from 'react';
 
 export const Control = {
   controlId: 'textAlign2',

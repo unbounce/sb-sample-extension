@@ -1,5 +1,6 @@
+import React from 'react';
+
 import component from 'config/global-dependencies/component';
-import React from 'config/global-dependencies/react';
 import Schema from 'config/global-dependencies/schema';
 
 import { HelloWorld } from './components/hello-world';

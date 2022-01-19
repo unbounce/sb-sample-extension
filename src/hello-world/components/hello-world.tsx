@@ -1,4 +1,5 @@
-import React, { useState } from 'config/global-dependencies/react';
+// eslint-disable-next-line
+import React, { useState } from 'react';
 
 import { ChangeFirstNameModal } from './change-first-name-modal';
 
@@ -13,8 +14,12 @@ export const HelloWorld = ({ data, dispatch }: any) => {
 
   return (
     <>
-      <div className={data.styles}>
-        Hello, <button onClick={() => setShowModal(true)}>{firstName}</button> {lastName}
+      <div data-testid="hello-world-content" className={data.styles}>
+        Hello,{' '}
+        <button data-testid="hello-world-first-name-btn" onClick={() => setShowModal(true)}>
+          {firstName}
+        </button>{' '}
+        {lastName}
       </div>
       {showModal && (
         <ChangeFirstNameModal firstName={firstName} onUpdate={updateFirstName} onClose={() => setShowModal(false)} />
