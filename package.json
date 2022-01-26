@@ -66,6 +66,6 @@
     "styled-components": "^5.3.3"
   },
   "dependencies": {
-    "smart-builder-sdk": "https://app-assets-unbounce-com.s3.amazonaws.com/content-smart-builder-apps/smart-builder-sdk-1.0.0-prod.tgz"
+    "smart-builder-sdk": "https://app-assets-unbounce-com.s3.amazonaws.com/content-smart-builder-apps/smart-builder-sdk/smart-builder-sdk-1.0.0-beta.2.tgz"
   }
 }
