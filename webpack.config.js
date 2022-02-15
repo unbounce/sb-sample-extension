@@ -31,6 +31,8 @@ module.exports = (env) => ({
       config: path.resolve(__dirname, './config'),
       react: path.resolve(__dirname, './config/global-dependencies/react.ts'),
       'react-dom': path.resolve(__dirname, './config/global-dependencies/react-dom.ts'),
+      'styled-components': path.resolve(__dirname, './config/global-dependencies/styled'),
+      'smart-builder-sdk': path.resolve(__dirname, './config/global-dependencies/smart-builder-sdk'),
     },
   },
 });
