@@ -15,7 +15,9 @@ const schema = Schema.object({
   styles: Schema.object({
     textAlign: Schema.style('text-align', {
       layoutSpecific: true,
-    }).withControl('textAlign'),
+    })
+      .withControl('textAlign')
+      .withControl('textAlign2'),
   }).mapData((data: any) => Object.values(data).join(' ')),
 });
 

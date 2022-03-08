@@ -1,14 +1,18 @@
 // eslint-disable-next-line
 import React, { useState } from 'react';
+import { ComponentProps } from 'smart-builder-sdk';
 
 import { ChangeFirstNameModal } from './change-first-name-modal';
 
-export const HelloWorld = ({ data, dispatch }: any) => {
+export const HelloWorld = ({
+  data,
+  dispatch,
+}: ComponentProps<{ firstName: string; lastName: string; styles: string }>) => {
   const { firstName, lastName } = data;
   const [showModal, setShowModal] = useState(false);
 
   const updateFirstName = (newFirstName: string) => {
-    dispatch((api: any) => api.get('firstName').set(newFirstName));
+    dispatch((api) => api.get('firstName').set(newFirstName));
     setShowModal(false);
   };
 
