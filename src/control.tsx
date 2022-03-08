@@ -1,14 +1,14 @@
 import React from 'react';
+import { ComponentProps } from 'smart-builder-sdk';
 
 export const Control = {
   controlId: 'textAlign2',
-  controlIdToOverwrite: 'textAlign',
-  Component: ({ dispatch }: any) => {
+  Component: ({ dispatch }: ComponentProps<string>) => {
     return (
       <div>
         <button
           onClick={() => {
-            dispatch((api: any) => {
+            dispatch((api) => {
               api.set('right');
             });
           }}

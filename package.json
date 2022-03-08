@@ -32,10 +32,10 @@
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
     "@testing-library/dom": "^8.11.1",
+    "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/react-hooks": "^7.0.0",
     "@testing-library/user-event": "^13.5.0",
-    "@testing-library/jest-dom": "^5.16.1",
     "@trivago/prettier-plugin-sort-imports": "^2.0.2",
     "@types/jest": "^27.0.2",
     "@types/react": "^17.0.2",
@@ -63,7 +63,7 @@
   },
   "peerDependencies": {
     "react": "^17.0.2",
-    "smart-builder-sdk": "https://app-assets-unbounce-com.s3.amazonaws.com/content-smart-builder-apps/smart-builder-sdk/smart-builder-sdk-1.0.0-beta.4.tgz",
+    "smart-builder-sdk": "https://app-assets-unbounce-com.s3.amazonaws.com/content-smart-builder-apps/smart-builder-sdk/smart-builder-sdk-1.0.0-beta.6.tgz",
     "styled-components": "^5.3.3"
   }
 }
