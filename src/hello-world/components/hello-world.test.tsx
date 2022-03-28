@@ -1,15 +1,19 @@
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import React from 'react';
+import { ComponentProps } from 'smart-builder-sdk';
 
 import { HelloWorld } from './hello-world';
 
 const setMock = jest.fn();
-const dispatch = (callback: any) => {
-  callback({ get: () => ({ set: setMock }) });
-};
+const props = {
+  data: { firstName: 'First Name', lastName: 'Last Name', styles: '' },
+  dispatch: (callback: any) => {
+    callback({ get: () => ({ set: setMock }) });
+  },
+} as ComponentProps<{ firstName: string; lastName: string; styles: string }>;
 
 const renderComponent = () => {
-  return render(<HelloWorld data={{ firstName: 'First Name', lastName: 'Last Name' }} dispatch={dispatch} />);
+  return render(<HelloWorld {...props} />);
 };
 
 describe('Hello World Component', () => {
