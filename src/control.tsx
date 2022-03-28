@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentProps } from 'smart-builder-sdk';
+import { ComponentProps } from 'smart-builder-sdk-types';
 
 export const Control = {
   controlId: 'textAlign2',

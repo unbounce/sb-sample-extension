@@ -17,7 +17,8 @@
     "paths": {
       "config/*": ["config/*"],
       "ub-shared": ["config/global-dependencies/ub-shared.ts"],
-      "smart-builder-shared": ["config/global-dependencies/smart-builder-shared.ts"]
+      "smart-builder-shared": ["config/global-dependencies/smart-builder-shared.ts"],
+      "smart-builder-sdk": ["config/global-dependencies/smart-builder-sdk.ts"]
     },
     "typeRoots": ["./node_modules/@types"],
     "declaration": false,

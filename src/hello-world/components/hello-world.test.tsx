@@ -1,8 +1,8 @@
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import React from 'react';
-import { ComponentProps } from 'smart-builder-sdk';
+import { ComponentProps } from 'smart-builder-sdk-types';
 
-import { HelloWorld } from './hello-world';
+import HelloWorld from './hello-world';
 
 const setMock = jest.fn();
 const props = {
