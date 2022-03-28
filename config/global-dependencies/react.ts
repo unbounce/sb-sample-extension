@@ -1,5 +1,3 @@
-import type ReactType from 'react';
-const react: typeof ReactType = window['react'];
 export const {
   version,
   useState,
@@ -25,5 +23,5 @@ export const {
   useMemo,
   useReducer,
   useRef,
-} = react;
-export default react;
+} = window['react'];
+export default window['react'];

@@ -1,4 +1,8 @@
-const uiComponents = window['uiComponents'];
+declare global {
+  interface Window {
+    uiComponents: any;
+  }
+}
 
 export const {
   AddButton,
@@ -186,6 +190,6 @@ export const {
   WebhookLogo,
   ZapierLogo,
   ZohoLogo,
-} = uiComponents;
+} = window['uiComponents'];
 
-export default uiComponents;
+export default window['uiComponents'];

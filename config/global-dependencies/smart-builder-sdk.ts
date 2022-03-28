@@ -1,21 +1,16 @@
-import type SmartBuilderSdkType from 'smart-builder-sdk';
-
-const smartBuilderSdk: typeof SmartBuilderSdkType = window['smartBuilderSdk'];
-
-export type { AuthState, Manifest, ExtensionType, UIEventLogParams, PaginateData } from 'smart-builder-sdk';
+export type { AuthState, Manifest, PaginateData, UIEventLogParams } from 'smart-builder-sdk';
 
 export const {
   useApiRequest,
   SdkProvider,
   OAuthProvider,
   useOAuthContext,
-  useExtensionOauth,
   getAfterFormSubmitScript,
   Script,
   createUIEventTracking,
   usePaginateResults,
   useImageGalleryContext,
   useImageGallery,
-} = smartBuilderSdk;
+} = window['smartBuilderSdk'];
 
-export default smartBuilderSdk;
+export default window['smartBuilderSdk'];

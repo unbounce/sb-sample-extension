@@ -1,4 +1,4 @@
-import { registerControl, registerComponent, registerSection } from 'config/utils/register-methods';
+import { registerControl, registerComponent, registerSection } from 'ub-shared';
 
 import { Control } from './control';
 import { Component } from './hello-world';

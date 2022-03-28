@@ -1,3 +1,1 @@
-const styled = window["styled"];
-
-export default styled;
+export default window['styled'];

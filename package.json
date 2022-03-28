@@ -10,6 +10,7 @@
     "last 2 versions"
   ],
   "scripts": {
+    "check-types": "tsc --noEmit",
     "lint": "npm run lint:prettier && npm run lint:eslint",
     "test": "jest",
     "lint:eslint": "eslint src --ext .ts,.tsx",
@@ -63,7 +64,7 @@
   },
   "peerDependencies": {
     "react": "^17.0.2",
-    "smart-builder-sdk": "https://app-assets-unbounce-com.s3.amazonaws.com/content-smart-builder-apps/smart-builder-sdk/smart-builder-sdk-1.0.0-beta.6.tgz",
+    "smart-builder-sdk": "https://app-assets-unbounce-com.s3.amazonaws.com/content-smart-builder-apps/smart-builder-sdk/smart-builder-sdk-1.0.0-beta.7.tgz",
     "styled-components": "^5.3.3"
   }
 }
