@@ -1,4 +1,4 @@
-import { render, screen, waitFor, fireEvent } from '@testing-library/react';
+/*import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import React from 'react';
 import { ComponentProps } from 'smart-builder-sdk-types';
 
@@ -54,3 +54,4 @@ describe('Hello World Component', () => {
     });
   });
 });
+*/
