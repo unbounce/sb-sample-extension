@@ -1,7 +1,5 @@
 import React from 'react';
-
-import component from 'config/global-dependencies/component';
-import Schema from 'config/global-dependencies/schema';
+import { component, Schema } from 'ub-shared';
 
 import { HelloWorld } from './components/hello-world';
 import { migrations } from './migrations';

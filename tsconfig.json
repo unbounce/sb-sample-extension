@@ -15,7 +15,9 @@
     "strictNullChecks": true,
     "baseUrl": "./",
     "paths": {
-      "config/*": ["config/*"]
+      "config/*": ["config/*"],
+      "ub-shared": ["config/global-dependencies/ub-shared.ts"],
+      "smart-builder-shared": ["config/global-dependencies/smart-builder-shared.ts"]
     },
     "typeRoots": ["./node_modules/@types"],
     "declaration": false,
@@ -25,6 +27,6 @@
     "noUnusedLocals": true,
     "moduleResolution": "node"
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "./config/**/*"],
   "exclude": ["node_modules"]
 }

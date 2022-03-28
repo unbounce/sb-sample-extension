@@ -1,4 +1,4 @@
-import section from 'config/global-dependencies/section';
+import { section } from 'ub-shared';
 
 import { HelloWorldTemplate } from './hello-world-template';
 

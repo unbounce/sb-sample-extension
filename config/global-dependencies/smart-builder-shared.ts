@@ -1,6 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const sbShared = window['sbShared'];
+declare global {
+  interface Window {
+    sbShared: any;
+  }
+}
 
 export const {
   FullScreenModal,
@@ -19,6 +21,6 @@ export const {
   textAlignSchema,
   textDecorationSchema,
   typographySchema,
-} = sbShared;
+} = window['sbShared'];
 
-export default sbShared;
+export default window['sbShared'];

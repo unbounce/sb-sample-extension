@@ -1,8 +1,3 @@
-import type ReactDomType from 'react-dom';
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const reactDom: typeof ReactDomType = window['reactDom'];
 export const {
   version,
   render,
@@ -13,5 +8,5 @@ export const {
   flushSync,
   unstable_batchedUpdates,
   unstable_renderSubtreeIntoContainer,
-} = reactDom;
-export default reactDom;
+} = window['reactDom'];
+export default window['reactDom'];
