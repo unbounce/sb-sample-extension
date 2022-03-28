@@ -1,4 +1,7 @@
 import type ReactType from 'react';
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 const react: typeof ReactType = window['react'];
 export const {
   version,
