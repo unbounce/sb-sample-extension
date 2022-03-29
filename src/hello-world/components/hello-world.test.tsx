@@ -1,17 +1,16 @@
-test.todo('do this');
-/*import { render, screen, waitFor, fireEvent } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import React from 'react';
 import { ComponentProps } from 'smart-builder-sdk-types';
 
-import HelloWorld from './hello-world';
+import HelloWorld, { DataStructure } from './hello-world';
 
 const setMock = jest.fn();
 const props = {
-  data: { firstName: 'First Name', lastName: 'Last Name', styles: '' },
+  data: { firstName: 'First Name', lastName: 'Last Name', styles: { textAlign: '' } },
   dispatch: (callback: any) => {
     callback({ get: () => ({ set: setMock }) });
   },
-} as ComponentProps<{ firstName: string; lastName: string; styles: string }>;
+} as ComponentProps<DataStructure>;
 
 const renderComponent = () => {
   return render(<HelloWorld {...props} />);
@@ -55,4 +54,3 @@ describe('Hello World Component', () => {
     });
   });
 });
-*/

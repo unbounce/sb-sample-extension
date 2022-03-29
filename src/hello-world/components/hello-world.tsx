@@ -3,8 +3,9 @@ import { WithControls, ControlButton, WithStyles } from 'smart-builder-sdk';
 import { ComponentProps, WithStylesProps } from 'smart-builder-sdk-types';
 
 import { ChangeFirstNameModal } from './change-first-name-modal';
+import { Panel } from './control-panel';
 
-type DataStructure = { firstName: string; lastName: string; styles: { textAlign: string } };
+export type DataStructure = { firstName: string; lastName: string; styles: { textAlign: string } };
 
 const HelloWorld = ({ data, dispatch, className }: ComponentProps<DataStructure, WithStylesProps>) => {
   const { firstName, lastName } = data;
@@ -45,41 +46,7 @@ export default WithStyles(
           An Icon
         </ControlButton>
       ),
-      Panel: ({ dispatch }) => (
-        <div data-testid="custom-text-align-panel">
-          Where do you want that text
-          <button
-            onClick={() =>
-              dispatch((api) => {
-                api.get('styles').set({ textAlign: 'left' });
-              })
-            }
-            data-testid={`button-text-align-left`}
-          >
-            Left
-          </button>
-          <button
-            onClick={() =>
-              dispatch((api) => {
-                api.get('styles').set({ textAlign: 'center' });
-              })
-            }
-            data-testid={`button-text-align-center`}
-          >
-            Center
-          </button>
-          <button
-            onClick={() =>
-              dispatch((api) => {
-                api.get('styles').set({ textAlign: 'right' });
-              })
-            }
-            data-testid={`button-text-align-right`}
-          >
-            Right
-          </button>
-        </div>
-      ),
+      Panel,
       type: 'subtoolbar',
     },
   ]),
