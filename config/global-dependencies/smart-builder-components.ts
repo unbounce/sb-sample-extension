@@ -19,5 +19,3 @@ export const {
   Tabs,
   Tooltip,
 } = window['uiComponents'];
-
-export default window['sbShared'] & window['uiComponents'];
