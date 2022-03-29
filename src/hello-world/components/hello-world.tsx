@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { WithControls, ControlButton, WithStyles } from 'smart-builder-sdk';
-import { ComponentProps, WithStylesProps } from 'smart-builder-sdk-types';
+import { ComponentProps, WithStylesProps } from 'unbounce-smart-builder-sdk-types';
 
 import { ChangeFirstNameModal } from './change-first-name-modal';
 import { Panel } from './control-panel';
