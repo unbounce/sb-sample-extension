@@ -45,6 +45,7 @@
     "@types/styled-components": "^5.1.20",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/typescript-estree": "^4.25.0",
+    "@unbounce/smart-builder-sdk-types": "file:../smart-builder-sdk-types/unbounce-smart-builder-sdk-types-1.0.0.tgz",
     "babel-loader": "^8.0.6",
     "cors": "^2.8.5",
     "eslint-plugin-jsx-a11y": "^6.4.1",
