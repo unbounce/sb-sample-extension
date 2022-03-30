@@ -23,4 +23,4 @@ jobs:
       - name: Check types
         run: npm run check-types
       - name: Run tests
-        run: npm run test
+        run: npm run test -- --passWithNoTests
