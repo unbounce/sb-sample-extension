@@ -1,4 +1,4 @@
-export const { FullScreenModal, CardContainer, CardList, CardListControls, CardsListWrapper, NoResults } =
+export const { FullScreenModal, CardContainer, CardList, CardListControls, CardsListWrapper, NoResults, ColorInput } =
   window['sbShared'];
 
 export const {
