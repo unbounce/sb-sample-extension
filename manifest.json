@@ -1,5 +1,5 @@
 {
-  "extensionId": "@external/helloWorld",
+  "appId": "@external/helloWorld",
   "version": "0.1",
   "name": "Hello World",
   "isBeta": true,
@@ -8,6 +8,6 @@
   "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/HelloWorld.svg",
   "moreInfoUrl": "https://en.wikipedia.org/wiki/%22Hello,_World!%22_program",
   "categories": [],
-  "include": [],
+  "files": [],
   "externalScripts": ["http://localhost:8081/index.js"]
 }
