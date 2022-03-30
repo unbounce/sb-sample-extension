@@ -3,11 +3,21 @@
   "version": "0.1",
   "name": "Hello World",
   "isBeta": true,
-  "isSwappable": true,
+  "isSwappable": false,
   "description": "Hello World example",
   "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/HelloWorld.svg",
   "moreInfoUrl": "https://en.wikipedia.org/wiki/%22Hello,_World!%22_program",
   "categories": [],
   "include": [],
-  "externalScripts": ["http://localhost:8081/index.js"]
+  "settings": {
+    "whatsappId": {
+      "type": "string",
+      "label": "Whatsapp number",
+      "required": true,
+      "placeholder": "12345678910"
+    }
+  },
+  "externalScripts": [
+    "http://localhost:8081/index.js"
+  ]
 }

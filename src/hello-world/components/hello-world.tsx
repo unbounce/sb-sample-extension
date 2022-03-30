@@ -1,55 +1,39 @@
-import React, { useState } from 'react';
-import { WithControls, ControlButton, WithStyles } from 'smart-builder-sdk';
-import { ComponentProps, WithStylesProps } from 'unbounce-smart-builder-sdk-types';
+import React from 'react';
+import { ComponentProps } from 'unbounce-smart-builder-sdk-types';
 
-import { ChangeFirstNameModal } from './change-first-name-modal';
-import { Panel } from './control-panel';
 
-export type DataStructure = { firstName: string; lastName: string; styles: { textAlign: string } };
+export type DataStructure = { whatsappId: string };
 
-const HelloWorld = ({ data, dispatch, className }: ComponentProps<DataStructure, WithStylesProps>) => {
-  const { firstName, lastName } = data;
-  const [showModal, setShowModal] = useState(false);
-
-  const updateFirstName = (newFirstName: string) => {
-    dispatch((api) => api.get('firstName').set(newFirstName));
-    setShowModal(false);
-  };
+export default ({ data, mode }: ComponentProps<DataStructure>) => {
+  console.log(data)
 
   return (
     <>
-      <div data-testid="hello-world-content" className={className}>
-        Hello,{' '}
-        <button data-testid="hello-world-first-name-btn" onClick={() => setShowModal(true)}>
-          {firstName}
-        </button>{' '}
-        {lastName}
-      </div>
-      {showModal && (
-        <ChangeFirstNameModal firstName={firstName} onUpdate={updateFirstName} onClose={() => setShowModal(false)} />
-      )}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `alert('${data.whatsappId}')`,
+        }}
+      />
     </>
   );
 };
 
-const textAlignLabel = 'My own text align';
+// Whats app code. Commented out for now
+// export default ({ data }: ComponentProps<DataStructure>) => {
 
-export default WithStyles(
-  WithControls(HelloWorld, [
-    'text-align', // You can pass the id of a registered control
-    {
-      // Or can define your own
-      id: 'custom-text-align',
-      label: textAlignLabel,
-      Button: (props) => (
-        <ControlButton label={textAlignLabel} active={false} {...props}>
-          An Icon
-        </ControlButton>
-      ),
-      Panel,
-      type: 'subtoolbar',
-    },
-  ]),
-  'styles', // The object key where styles are applied from the Schema
-  'paragraph', // Optional: value from the styleguide to be applied for default styling
-);
+//   return (
+//     <>
+//       <script type="text/javascript"
+//         dangerouslySetInnerHTML={{
+//           __html: `
+//           function whatsappClick() {debugger; window.open("https://web.whatsapp.com/send?phone=+${data.id}");}`
+//         }}
+//       />
+//       <div id = 'chat-test'
+//         dangerouslySetInnerHTML={{
+//           __html: `<div style="background:url('https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png');background-size:auto;width:100px;height:100px;position:fixed;bottom:0;right:0;background-size:100px 100px;z-index:1" onclick="whatsappClick()"></div>`
+//         }}
+//       />
+//     </>
+//   );
+// };
