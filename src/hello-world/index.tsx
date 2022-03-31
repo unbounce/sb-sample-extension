@@ -4,6 +4,8 @@ import HelloWorld from './components/hello-world';
 
 const schema = Schema.object({
   whatsappId: Schema.string().noControls(),
+  telegramId: Schema.string().noControls(),
+  buttonColorHex: Schema.string().noControls(),
 });
 
 export const Component = component({

@@ -1,19 +1,31 @@
 {
   "appId": "@external/helloWorld",
   "version": "0.1",
-  "name": "Hello World",
+  "name": "Chat Widget",
   "isBeta": true,
-  "description": "Hello World example",
-  "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/HelloWorld.svg",
+  "description": "Allow potential customers to reach out via chat apps",
+  "iconUrl": "https://app-assets-unbounce-com.s3.amazonaws.com/content-smart-builder-apps/chat-app/chat-icon.svg",
   "moreInfoUrl": "https://en.wikipedia.org/wiki/%22Hello,_World!%22_program",
   "categories": ["script"],
   "files": [],
   "settings": {
     "whatsappId": {
       "type": "string",
-      "label": "Whatsapp number",
+      "label": "Whatsapp Phone Number",
       "required": true,
-      "placeholder": "12345678910"
+      "placeholder": "+12345678912"
+    },
+    "telegramId": {
+      "type": "string",
+      "label": "Telegram Username or Phone Number",
+      "required": true,
+      "placeholder": "+12345678912 / test_username"
+    },
+    "buttonColorHex": {
+      "type": "string",
+      "label": "Choose the floating chat button color (Hex)",
+      "required": false,
+      "placeholder": "#E74338"
     }
   },
   "externalScripts": ["http://localhost:8081/index.js"]
