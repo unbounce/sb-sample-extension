@@ -39,7 +39,7 @@
       "type": "string",
       "label": "Floating Chat Button Text Hex Color (Optional)",
       "required": false,
-      "placeholder": "#ffffff"
+      "placeholder": "#FFFFFF"
     }
   },
   "externalScripts": [

@@ -1,6 +1,6 @@
 import { registerComponent } from 'ub-shared';
 
-import { Component } from './hello-world';
+import { Component } from './instant-messenger';
 
 /**
  * Feel free to register whatever you need to export.
