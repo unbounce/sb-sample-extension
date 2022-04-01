@@ -1,12 +1,14 @@
 {
-  "appId": "@external/helloWorld",
+  "appId": "@unbounce/instantMessenger",
   "version": "0.1",
-  "name": "Chat Widget",
+  "name": "Instant Messenger",
   "isBeta": true,
-  "description": "Allow potential customers to reach out via chat apps",
+  "description": "Add Whatsapp and Telegram to your page. Make sure to add your country code. For example +1 for USA/Canada. Publish the page to see it in action!",
   "iconUrl": "https://app-assets-unbounce-com.s3.amazonaws.com/content-smart-builder-apps/chat-app/chat-icon.svg",
   "moreInfoUrl": "https://en.wikipedia.org/wiki/%22Hello,_World!%22_program",
-  "categories": ["script"],
+  "categories": [
+    "script"
+  ],
   "files": [],
   "settings": {
     "whatsappId": {
@@ -17,16 +19,30 @@
     },
     "telegramId": {
       "type": "string",
-      "label": "Telegram Username or Phone Number",
+      "label": "Telegram Phone Number or Username",
       "required": true,
-      "placeholder": "+12345678912 / test_username"
+      "placeholder": "+12345678912 / @test_username"
+    },
+    "chatText": {
+      "type": "string",
+      "label": "Chat button text (Option)",
+      "required": false,
+      "placeholder": "'Question?' 'Contact Us'"
     },
     "buttonColorHex": {
       "type": "string",
-      "label": "Choose the floating chat button color (Hex)",
+      "label": "Floating Chat Button Hex Color (Optional)",
       "required": false,
       "placeholder": "#E74338"
+    },
+    "buttonTextColorHex": {
+      "type": "string",
+      "label": "Floating Chat Button Text Hex Color (Optional)",
+      "required": false,
+      "placeholder": "#ffffff"
     }
   },
-  "externalScripts": ["http://localhost:8081/index.js"]
+  "externalScripts": [
+    "http://localhost:8081/index.js"
+  ]
 }
