@@ -16,7 +16,6 @@ const HelloWorld = ({ data, dispatch, className, mode }: ComponentProps<DataStru
     dispatch((api) => api.get('firstName').set(newFirstName));
     setShowModal(false);
   };
-
   const isViewMode = mode.type === 'view';
 
   return (

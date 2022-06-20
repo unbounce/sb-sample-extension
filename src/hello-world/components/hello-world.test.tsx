@@ -1,14 +1,32 @@
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import React from 'react';
-import { ComponentProps } from 'unbounce-smart-builder-sdk-types';
+import { ComponentProps, _Script } from 'unbounce-smart-builder-sdk-types';
 
 import HelloWorld, { DataStructure } from './hello-world';
+
+const ScriptMock: _Script = ({ ...props }) => (
+  <script data-testid={props?.externalScript?.scriptId} src={props?.externalScript?.src}>
+    {props?.externalScript?.onloadMethod}
+  </script>
+);
+
+jest.mock('smart-builder-sdk', () => {
+  const ogModule = jest.requireActual('smart-builder-sdk');
+
+  return {
+    ...ogModule,
+    Script: ScriptMock,
+  };
+});
 
 const setMock = jest.fn();
 const props = {
   data: { firstName: 'First Name', lastName: 'Last Name', styles: { textAlign: '' } },
   dispatch: (callback: any) => {
     callback({ get: () => ({ set: setMock }) });
+  },
+  mode: {
+    type: 'view',
   },
 } as ComponentProps<DataStructure>;
 
