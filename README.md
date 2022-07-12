@@ -2,6 +2,8 @@
 
 ## Developing apps locally using the Smart Builder
 
+hello
+
 1. Run `npm i` from the root directory.
 2. Run `npm start`. This will build the app and watch for changes.
 3. In a different terminal, run `npm run serve`
