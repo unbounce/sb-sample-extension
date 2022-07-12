@@ -21,6 +21,9 @@ Once you run the script and fill in the prompts, you should have the updated bra
 
 At this point, you should be good to go. Follow the instructions below to start developing!
 
+**IMPORTANT!**
+When creating a Pull Request from the forked repository, the default base repository is set to the repository from which you forked, and currently there has [not been a way to ensure the base repository and branch is set to the one that was forked](https://stackoverflow.com/questions/61118665/can-i-set-default-repository-for-pull-requests-from-fork#comment125495272_70968747). While we are investigating a better workflow, the current workaround is to ensure that the base repo and branch is correct upon initialization of the Pull Request. See screenshot [here](https://user-images.githubusercontent.com/6353819/178614001-7abf11ce-19f1-40c8-8abb-ce89415b4a04.png)
+
 ## Developing apps locally using the Smart Builder
 
 1. Run `npm i` from the root directory.
