@@ -28,6 +28,6 @@
     "noUnusedLocals": true,
     "moduleResolution": "node"
   },
-  "include": ["./src/**/*", "./config/**/*"],
+  "include": ["./src/**/*", "./config/**/*", "manifest.ts"],
   "exclude": ["node_modules"]
 }
