@@ -61,6 +61,6 @@ When creating a Pull Request from the forked repository, the default base reposi
 - Look for README that provides a summary of the purpose of the App and any good to knows about the code,
 - Run the app within Smart Builder. We should be able to install the App to the Builder and add it as either a section or a slot. We will point out any runtime errors or logs that should not be in production.
 - Ensure directory and file structures make sense. Schemas, sections, components, controls, utilities, test files, etc.
-- Note anything that raises a security concern or steers away from the above coding practices. The goal here is not to change your code, but make it easy to read and allow you to debug more efficiently in the future. An example is a refactoring suggestion to make the schema simpler.
-- We may make a design suggestion if necessary. A control should not take full height of the browser page (unless it's a modal, and even then it's questionable).
+- Note anything that raises a security concern or steers away from the above coding practices. Again, the goal here is not to change your code, but make it easy to read and allow you to debug more efficiently in the future. An example is a refactoring suggestion to make the schema simpler.
+- We may make a design suggestion if necessary. For example, a control should not take full height of the browser page (unless it's a modal, and even then it's questionable).
 - Ensure the code has no issues, and can be transpiled into a single JavaScript file. We will check if static assets are needed.
