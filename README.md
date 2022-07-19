@@ -34,3 +34,33 @@ When creating a Pull Request from the forked repository, the default base reposi
 6. Copy and paste the `manifest.json` file from this repo into the box.
 7. Now scroll up and find your app in the sidebar. Press the + button in the corner.
 8. Voila - you are now using the local version your app running on your machine.
+
+## How Pull Request (PR) Reviews are done
+
+1. `sb-apps-admin` GitHub user will review the PR. This will be one of Unbounce's Smart Builder developers, all of whom are familiar with the Builder, SDK, and Apps. This user should already have read-only access to your repository.
+2. `sb-apps-admin` will either approve, comment, or request changes on the PR, based on the below details. We are not here to change your App or code, but make sure it's safe to release in production and set up the App for success for future iterations
+3. Upon PR approval, you will be responsible for merging to `main` branch. We have a system in place to get the latest changes to your `main` branch, transpile the code, and release the JavaScript file and any assets to the marketplace
+
+### Security concerns
+
+- Hardcoding secrets, tokens, API keys, etc should be avoided. If the App requires the user to enter their API Key, avoid storing it in the schema or in scripts. Look into [Oauth Flow](https://unbounce-sdk.notion.site/Apps-Authentication-172473820c8c46929d41d0108a3f857b) if necessary
+- Look out for any XSS or badly stringified code in the `Script` component from the `smart-builder-sdk`
+- Avoid storing or displaying Unbounce App user's (especially sensitive) data on to the published page
+
+### General coding practices
+
+- Use appropriate and meaningful naming conventions. This helps reduce unnecessary/obvious comments in code
+- Keep things simple. A single function should be responsible for handling a single task
+- Avoid deep nesting, especially on the data/schema side. This can get extremely difficult to debug later on
+- DRY (Don't Repeat Yourself) principle
+- Avoid magic values. (E.G. `if (someVar === 500) vs if (someVar === MAX_HEIGHT_VALUE)`)
+- The more clear and straightforward your code is, the faster it will get approved and published in the marketplace!
+
+### Some things we will look out for
+
+- Look for README that provides a summary of the purpose of the App and any good to knows about the code,
+- Run the app within Smart Builder. We should be able to install the App to the Builder and add it as either a section or a slot. We will point out any runtime errors or logs that should not be in production.
+- Ensure directory and file structures make sense. Schemas, sections, components, controls, utilities, test files, etc.
+- Note anything that raises a security concern or steers away from the above coding practices. The goal here is not to change your code, but make it easy to read and allow you to debug more efficiently in the future. An example is a refactoring suggestion to make the schema simpler.
+- We may make a design suggestion if necessary. A control should not take full height of the browser page (unless it's a modal, and even then it's questionable).
+- Ensure the code has no issues, and can be transpiled into a single JavaScript file. We will check if static assets are needed.
