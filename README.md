@@ -2,11 +2,19 @@
 
 ## How to get started
 
-Welcome to the world of creating Apps for the Smart Builder! Please fork this repository as your own and rename it to represent the App that you are developing.
+Welcome to the world of creating Apps for the Smart Builder! This repository is a template repository, so please click "Use this template" as shown in the image below:
+[Use this template](https://user-images.githubusercontent.com/6353819/185502617-43839aae-aebc-48fe-9837-0ed1686ac9a8.png)
 
-Here are the steps to get started by setting up your repository settings.
+**IMPORTANT!**
+Please keep the repository visibility as "public" upon initial creation. You will run a script that will change the visibility of this to private later. This is because the script first handles branch protection rules, but GitHub API does not allow you to do so unless the repository is public even with a Personal Access Token.
 
-1. Run `npm run init-repo-settings`. This will run a script that will prompot you for your GitHub username, repository name, and Personal Access Token. please see these [docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+[Example](https://user-images.githubusercontent.com/6353819/185502852-2072fcdd-bafd-4da6-9131-028dec2122a6.png)
+
+After you have created your repository, clone it to your local computer by running `git clone git@github.com:{your-github-account}/{your-app-repository}.git`.
+
+### Here are the steps to get started by setting up your repository settings.
+
+1. Run `npm run init-repo-settings`. This will run a script that will prompt you for your GitHub username, repository name, and Personal Access Token. For more details, please see these [docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 To generate a Personal Access Token:
 
@@ -17,12 +25,24 @@ To generate a Personal Access Token:
 
 Once you run the script and fill in the prompts, you should have the updated branch protection settings.
 
+**What does the script do?**
+If you are familiar with bash scripts, you can check it out at `bin/update-repo-branch-settings.sh`.
+
+The script does the following:
+
+- Makes a request to `https://api.github.com/repos/{ownerName}/{repoName}/branches/main` to check if the repository exists and the correct input parameters have been entered
+- If it exists, it makes a `PUT` request to update branch protection rules so that the `main` (default) branch requires a Pull Request with 1 approval
+- Once that is complete, it will update the visibility of your repository to be private
+- If both tasks succeed, you should see a response similar to:
+
+```
+Your branch update response is 200
+Your visibility update response is 200
+```
+
 2. Next, you will need to add `sb-apps-admin` as a collaborator. This is a single Unbounce Developer account that will conduct the PR reviews for app submission approval.
 
 At this point, you should be good to go. Follow the instructions below to start developing!
-
-**IMPORTANT!**
-When creating a Pull Request from the forked repository, the default base repository is set to the repository from which you forked, and currently there has [not been a way to ensure the base repository and branch is set to the one that was forked](https://stackoverflow.com/questions/61118665/can-i-set-default-repository-for-pull-requests-from-fork#comment125495272_70968747). While we are investigating a better workflow, the current workaround is to ensure that the base repo and branch is correct upon initialization of the Pull Request. See screenshot [here](https://user-images.githubusercontent.com/6353819/178614001-7abf11ce-19f1-40c8-8abb-ce89415b4a04.png)
 
 ## Developing apps locally using the Smart Builder
 
