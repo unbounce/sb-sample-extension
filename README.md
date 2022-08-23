@@ -6,11 +6,11 @@ Welcome to the world of creating Apps for the Smart Builder! This repository is 
 [Use this template](https://user-images.githubusercontent.com/6353819/185502617-43839aae-aebc-48fe-9837-0ed1686ac9a8.png)
 
 **IMPORTANT!**
-Please keep the repository visibility as "public" upon initial creation. You will run a script that will change the visibility of this private later. This is because the script first handles branch protection rules, but GitHub API does not allow you to do so unless the repository is public even with a Personal Access Token.
+Please keep the repository visibility as "public" upon initial creation. You will run a script that will change the visibility of this to private later. This is because the script first handles branch protection rules, but GitHub API does not allow you to do so unless the repository is public even with a Personal Access Token.
 
 [Example](https://user-images.githubusercontent.com/6353819/185502852-2072fcdd-bafd-4da6-9131-028dec2122a6.png)
 
-After you have created your repository, clone it to your local computer by running `git clone git@github.com:{your-github-accoint}/{your-app-repository}.git`.
+After you have created your repository, clone it to your local computer by running `git clone git@github.com:{your-github-account}/{your-app-repository}.git`.
 
 ### Here are the steps to get started by setting up your repository settings.
 
