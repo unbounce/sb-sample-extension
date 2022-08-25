@@ -13,6 +13,8 @@ export const {
   WithStyles,
   ControlButton,
   useImageGallery,
+  PlainTextElement,
+  RichTextElement,
 } = window['smartBuilderSdk'];
 
 export default window['smartBuilderSdk'];
