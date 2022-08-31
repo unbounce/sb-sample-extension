@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { Button } from 'smart-builder-components';
 import { WithControls, ControlButton, WithStyles, Script } from 'smart-builder-sdk';
 import { ComponentProps, WithStylesProps } from 'unbounce-smart-builder-sdk-types';
 
+import manifest from '../../../manifest';
+import { EmptyActions, EmptyState, StyledImg } from '../styled';
 import { ChangeFirstNameModal } from './change-first-name-modal';
 import { Panel } from './control-panel';
 import { getInlineScript, runOnloadMethod } from './script';
@@ -20,13 +23,14 @@ const HelloWorld = ({ data, dispatch, className, mode }: ComponentProps<DataStru
 
   return (
     <>
-      <div data-testid="hello-world-content" className={className}>
-        Hello,{' '}
-        <button data-testid="hello-world-first-name-btn" onClick={() => setShowModal(true)}>
-          {firstName}
-        </button>{' '}
-        {lastName}
-      </div>
+      <EmptyState data-testid="hello-world-content" className={className}>
+        <StyledImg src={manifest.iconUrl} alt="logo" />
+        <EmptyActions className="empty-actions">
+          <Button data-testid="hello-world-first-name-btn" onClick={() => setShowModal(true)}>
+            {`${firstName} ${lastName}`}
+          </Button>
+        </EmptyActions>
+      </EmptyState>
       {/* To test the External Script we are loading momentjs from a CDN(we chose moment just for simplicity), after loading the library the onload method will run. If you see in the example the mode is set to view and we are using condition: isViewMode. To test it in "edit" mode, you can modify mode to edit and condition to true and the alert should show when editing your landing page  */}
       {isViewMode ? (
         <Script

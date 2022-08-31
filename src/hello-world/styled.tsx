@@ -1,5 +1,27 @@
 import styled from 'styled-components';
 
+export const EmptyState = styled.div`
+  background: #ededed;
+  display: grid;
+  justify-content: center;
+  grid-gap: 20px;
+  padding: 30px;
+  text-align: center;
+  width: 100%;
+`;
+
+export const StyledImg = styled.img`
+  max-height: 100px;
+  max-width: 50%;
+  margin: auto;
+`;
+
+export const EmptyActions = styled.div`
+  display: grid;
+  justify-content: center;
+  grid-gap: 5px;
+`;
+
 export const CloseButton = styled.button`
   align-items: center;
   background: #252525;
