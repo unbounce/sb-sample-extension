@@ -1,15 +1,11 @@
-import React from 'react';
 import { component, Schema } from 'ub-shared';
 
 import HelloWorld from './components/hello-world';
 import { migrations } from './migrations';
 
 const schema = Schema.object({
-  firstName: Schema.string().noControls(),
-  lastName: Schema.string().groupControls({
-    icon: <span>LN</span>,
-    label: 'Last Name',
-  }),
+  firstName: Schema.string(),
+  lastName: Schema.string(),
   styles: Schema.newStyle({
     textAlign: {
       layoutSpecific: true,
