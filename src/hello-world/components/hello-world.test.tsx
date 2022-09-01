@@ -21,7 +21,7 @@ jest.mock('smart-builder-sdk', () => {
 
 const setMock = jest.fn();
 const props = {
-  data: { firstName: 'First Name', lastName: 'Last Name', styles: { textAlign: '' } },
+  data: { fullname: 'Fullname', isButtonSet: false, styles: { textAlign: '' } },
   dispatch: (callback: any) => {
     callback({ get: () => ({ set: setMock }) });
   },

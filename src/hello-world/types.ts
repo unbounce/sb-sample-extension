@@ -1,5 +1,5 @@
 export interface Props {
-  firstName: string;
+  fullname: string;
   onUpdate: (newFirstName: string) => void;
   onClose: () => void;
 }

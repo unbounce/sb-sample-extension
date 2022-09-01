@@ -4,8 +4,8 @@ import HelloWorld from './components/hello-world';
 import { migrations } from './migrations';
 
 const schema = Schema.object({
-  firstName: Schema.string().default('Noah'), // Optional: You can set defualt values to your schema properties
-  lastName: Schema.string().default('Anderson'),
+  fullname: Schema.string().default('Noah Anderson'), // Optional: You can set defualt values to your schema properties
+  isButtonSet: Schema.boolean().default(false),
   styles: Schema.newStyle({
     textAlign: {
       layoutSpecific: true,

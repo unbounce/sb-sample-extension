@@ -4,33 +4,49 @@ import { WithControls, ControlButton, WithStyles, Script } from 'smart-builder-s
 import { ComponentProps, WithStylesProps } from 'unbounce-smart-builder-sdk-types';
 
 import manifest from '../../../manifest';
-import { EmptyActions, EmptyState, StyledImg } from '../styled';
+import { EmptyActions, EmptyState, StyledImg, Wrapper, Text } from '../styled';
 import { ChangeFirstNameModal } from './change-first-name-modal';
 import { Panel } from './control-panel';
 import { getInlineScript, runOnloadMethod } from './script';
 
-export type DataStructure = { firstName: string; lastName: string; styles: { textAlign: string } };
+export type DataStructure = {
+  fullname: string;
+  isButtonSet: boolean;
+  styles: { textAlign: string };
+};
 
 const HelloWorld = ({ data, dispatch, className, mode }: ComponentProps<DataStructure, WithStylesProps>) => {
-  const { firstName, lastName } = data;
+  const { fullname, isButtonSet } = data;
   const [showModal, setShowModal] = useState(false);
 
   const updateFirstName = (newFirstName: string) => {
-    dispatch((api) => api.get('firstName').set(newFirstName));
+    dispatch((api) => api.get('fullname').set(newFirstName));
     setShowModal(false);
   };
   const isViewMode = mode.type === 'view';
 
   return (
     <>
-      <EmptyState data-testid="hello-world-content" className={className}>
-        <StyledImg src={manifest.iconUrl} alt="logo" />
-        <EmptyActions className="empty-actions">
+      {isButtonSet ? (
+        <Wrapper>
+          <Text>{`Your name is: ${fullname}`}</Text>
           <Button data-testid="hello-world-first-name-btn" onClick={() => setShowModal(true)}>
-            {`${firstName} ${lastName}`}
+            Click here to change your name
           </Button>
-        </EmptyActions>
-      </EmptyState>
+        </Wrapper>
+      ) : (
+        <EmptyState data-testid="hello-world-content" className={className}>
+          <StyledImg src={manifest.iconUrl} alt="logo" />
+          <EmptyActions className="empty-actions">
+            <Button
+              data-testid="hello-world-first-name-btn"
+              onClick={() => dispatch((api) => api.get('isButtonSet').set(true))}
+            >
+              Click Here to set up the button
+            </Button>
+          </EmptyActions>
+        </EmptyState>
+      )}
       {/* To test the External Script we are loading momentjs from a CDN(we chose moment just for simplicity), after loading the library the onload method will run. If you see in the example the mode is set to view and we are using condition: isViewMode. To test it in "edit" mode, you can modify mode to edit and condition to true and the alert should show when editing your landing page  */}
       {isViewMode ? (
         <Script
@@ -48,7 +64,7 @@ const HelloWorld = ({ data, dispatch, className, mode }: ComponentProps<DataStru
       {isViewMode ? <Script mode={mode.type} dependencies={[]} inlineScript={getInlineScript()} /> : null}
 
       {showModal && (
-        <ChangeFirstNameModal firstName={firstName} onUpdate={updateFirstName} onClose={() => setShowModal(false)} />
+        <ChangeFirstNameModal fullname={fullname} onUpdate={updateFirstName} onClose={() => setShowModal(false)} />
       )}
     </>
   );

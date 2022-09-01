@@ -3,24 +3,24 @@ import React, { useState } from 'react';
 import { Modal, CloseButton, Overlay } from '../styled';
 import { Props } from '../types';
 
-export const ChangeFirstNameModal = ({ firstName, onUpdate, onClose }: Props) => {
-  const [localFirstName, setLocalFirstName] = useState(firstName);
+export const ChangeFirstNameModal = ({ fullname, onUpdate, onClose }: Props) => {
+  const [localFullname, setLocalFullname] = useState(fullname);
   return (
     <>
       <Modal>
         <CloseButton onClick={onClose}>x</CloseButton>
         <label>
-          <strong>First Name:</strong>
+          <strong>Full Name:</strong>
           <br />
           <input
             type="text"
             data-testid="hello-world-first-name-input"
-            value={localFirstName}
-            onChange={({ currentTarget: { value } }) => setLocalFirstName(value)}
+            value={localFullname}
+            onChange={({ currentTarget: { value } }) => setLocalFullname(value)}
           />
         </label>
         <br />
-        <button data-testid="hello-world-save-btn" onClick={() => onUpdate(localFirstName)}>
+        <button data-testid="hello-world-save-btn" onClick={() => onUpdate(localFullname)}>
           Save
         </button>
       </Modal>

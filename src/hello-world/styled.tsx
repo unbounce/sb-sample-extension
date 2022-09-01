@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+export const Text = styled.div`
+  text-align: center;
+  line-height: 58px;
+  letter-spacing: 0px;
+  color: #202020;
+`;
+
+export const Wrapper = styled.div`
+  display: grid;
+`;
+
 export const EmptyState = styled.div`
   background: #ededed;
   display: grid;
