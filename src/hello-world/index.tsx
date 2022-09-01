@@ -2,14 +2,18 @@ import { component, Schema } from 'ub-shared';
 
 import HelloWorld from './components/hello-world';
 import { migrations } from './migrations';
+import { activeSchema, borderSchema, hoverSchema, marginSchema, paddingSchema, typographySchema } from './schemas';
 
 const schema = Schema.object({
   fullname: Schema.string().default('Noah Anderson'), // Optional: You can set defualt values to your schema properties
   isButtonSet: Schema.boolean().default(false),
-  styles: Schema.newStyle({
-    textAlign: {
-      layoutSpecific: true,
-    },
+  styles: Schema.newStyle({ // "New Style" schema is required for the "Design Settings" control to work
+    ...typographySchema,
+    ...paddingSchema,
+    ...marginSchema,
+    ...borderSchema,
+    hover: { ...hoverSchema },
+    active: { ...activeSchema },
   }),
 });
 

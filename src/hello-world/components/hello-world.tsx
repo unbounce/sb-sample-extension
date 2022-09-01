@@ -30,12 +30,13 @@ const HelloWorld = ({ data, dispatch, className, mode }: ComponentProps<DataStru
       {isButtonSet ? (
         <Wrapper>
           <Text>{`Your name is: ${fullname}`}</Text>
-          <Button data-testid="hello-world-first-name-btn" onClick={() => setShowModal(true)}>
+          {/* You need to pass "className" to your button so the style changes done in "Design Settings" can be applied */}
+          <Button className={className} data-testid="hello-world-first-name-btn" onClick={() => setShowModal(true)}>
             Click here to change your name
           </Button>
         </Wrapper>
       ) : (
-        <EmptyState data-testid="hello-world-content" className={className}>
+        <EmptyState data-testid="hello-world-content">
           <StyledImg src={manifest.iconUrl} alt="logo" />
           <EmptyActions className="empty-actions">
             <Button
@@ -87,7 +88,8 @@ export default WithStyles(
       Panel,
       type: 'subtoolbar',
     },
+    'design-button', // You can pass the id of a registered control, in this case this is the id for "Design Settings"
   ]),
   'styles', // The object key where styles are applied from the Schema
-  'paragraph', // Optional: value from the styleguide to be applied for default styling
+  'button', // Optional: value from the styleguide to be applied for default styling
 );
