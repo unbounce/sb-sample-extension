@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Toggle } from 'config/global-dependencies/smart-builder-components';
+
 export const Text = styled.div`
   text-align: center;
   line-height: 58px;
@@ -74,4 +76,26 @@ export const Overlay = styled.div`
   right: 0;
   top: 0;
   z-index: 22;
+`;
+
+export const StyledLabelConversion = styled.label`
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 20.11px;
+  font: 400 16px 'Source Sans Pro';
+  color: #303030;
+`;
+
+export const StyledToggle = styled(Toggle)`
+  transform: scale(0.5);
+  margin-right: -15px;
+`;
+
+export const StyledForm = styled.form`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 `;

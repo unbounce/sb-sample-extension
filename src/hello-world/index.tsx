@@ -7,7 +7,9 @@ import { activeSchema, borderSchema, hoverSchema, marginSchema, paddingSchema, t
 const schema = Schema.object({
   fullname: Schema.string().default('Noah Anderson'), // Optional: You can set defualt values to your schema properties
   isButtonSet: Schema.boolean().default(false),
-  styles: Schema.newStyle({ // "New Style" schema is required for the "Design Settings" control to work
+  tracking: Schema.formUrl(), // We use this property for the conversion tracking
+  styles: Schema.newStyle({
+    // "New Style" schema is required for the "Design Settings" control to work
     ...typographySchema,
     ...paddingSchema,
     ...marginSchema,
