@@ -8,7 +8,7 @@ import { DataStructure } from './hello-world';
 const setMock = jest.fn();
 const closeMock = jest.fn();
 const props = {
-  data: { firstName: 'First Name', lastName: 'Last Name', styles: { textAlign: '' } },
+  data: { fullname: 'First Name', styles: { textAlign: '' } },
   dispatch: (callback: any) => {
     callback({ get: () => ({ set: setMock }) });
   },
