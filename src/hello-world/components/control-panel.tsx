@@ -9,9 +9,13 @@ export const Panel = ({ data: { tracking }, dispatch }: ControlPanelProps<DataSt
     dispatch((api: any) => api.get('tracking').toggleTrackingEnabled(newVal));
   };
   return (
-    <StyledLabelConversion>
+    <StyledLabelConversion data-testid="hello-world-conversion-label">
       Conversion Tracking
-      <StyledToggle value={tracking.trackingEnabled} onClick={() => toggleTracking(!tracking.trackingEnabled)} />
+      <StyledToggle
+        data-testid="hello-world-conversion-toggle"
+        value={tracking.trackingEnabled}
+        onClick={() => toggleTracking(!tracking.trackingEnabled)}
+      />
     </StyledLabelConversion>
   );
 };

@@ -1,6 +1,5 @@
+import { Toggle } from 'smart-builder-components';
 import styled from 'styled-components';
-
-import { Toggle } from 'config/global-dependencies/smart-builder-components';
 
 export const Text = styled.div`
   text-align: center;

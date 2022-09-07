@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Button } from 'smart-builder-components';
 import { WithControls, WithStyles, Script, getAfterFormSubmitScript } from 'smart-builder-sdk';
 import { ComponentProps, WithStylesProps } from 'unbounce-smart-builder-sdk-types';
 
@@ -33,12 +32,12 @@ const HelloWorld = ({ data, dispatch, className, mode, entityId }: ComponentProp
       {isButtonSet ? (
         <>
           <Wrapper>
-            <Text>{`Your name is: ${fullname}`}</Text>
+            <Text data-testid="hello-world-text">{`Your name is: ${fullname}`}</Text>
             {/* You need to pass "className" to your button so the style changes done in "Design Settings" can be applied */}
             <button
               id={buttonId}
               className={className}
-              data-testid="hello-world-first-name-btn"
+              data-testid="hello-world-change-btn"
               onClick={() => setShowModal(true)}
             >
               Click here to change your name
@@ -68,12 +67,13 @@ const HelloWorld = ({ data, dispatch, className, mode, entityId }: ComponentProp
         <EmptyState data-testid="hello-world-content">
           <StyledImg src={manifest.iconUrl} alt="logo" />
           <EmptyActions className="empty-actions">
-            <Button
+            <button
+              className={className}
               data-testid="hello-world-first-name-btn"
               onClick={() => dispatch((api) => api.get('isButtonSet').set(true))}
             >
               Click Here to set up the button
-            </Button>
+            </button>
           </EmptyActions>
         </EmptyState>
       )}
