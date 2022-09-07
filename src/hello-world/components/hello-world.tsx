@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { WithControls, ControlButton, WithStyles, Script } from 'smart-builder-sdk';
+import { ControlButton, Script, WithControls, WithStyles } from 'smart-builder-sdk';
 import { ComponentProps, WithStylesProps } from 'unbounce-smart-builder-sdk-types';
 
 import { ChangeFirstNameModal } from './change-first-name-modal';
@@ -65,7 +65,7 @@ export default WithStyles(
         </ControlButton>
       ),
       Panel,
-      type: 'subtoolbar',
+      type: 'dropdown',
     },
   ]),
   'styles', // The object key where styles are applied from the Schema
