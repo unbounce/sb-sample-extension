@@ -16,7 +16,7 @@ const schema = Schema.object({
 export const Component = component({
   componentTypeId: 'helloWorld', // This is the id for your component in our system, must be camelCase. It is used to reference the component in places like templates
   displayName: 'HelloWorld',
-  tags: ['newControls', 'swappable'],
+  tags: ['newControls', 'swappable', 'isFullWidth'],
   schema,
   Component: HelloWorld,
   version: migrations.length,
