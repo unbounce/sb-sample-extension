@@ -19,9 +19,14 @@ jest.mock('smart-builder-sdk', () => {
   };
 });
 
+jest.mock('smart-builder-components', () => ({
+  FullScreenModal: () => <div></div>,
+  Toggle: () => <div></div>,
+}));
+
 const setMock = jest.fn();
 const props = {
-  data: { firstName: 'First Name', lastName: 'Last Name', styles: { textAlign: '' } },
+  data: { fullname: 'Fullname', isButtonSet: true, styles: { textAlign: '' }, tracking: { trackingEnabled: true } },
   dispatch: (callback: any) => {
     callback({ get: () => ({ set: setMock }) });
   },
@@ -30,33 +35,51 @@ const props = {
   },
 } as ComponentProps<DataStructure>;
 
-const renderComponent = () => {
-  return render(<HelloWorld {...props} />);
+const renderComponent = (isButtonSet: boolean) => {
+  const { data, dispatch, mode } = props;
+  return render(
+    <HelloWorld
+      data={{
+        ...data,
+        isButtonSet: isButtonSet,
+      }}
+      dispatch={dispatch}
+      mode={mode}
+      isSelected={false}
+      entityId={''}
+    />,
+  );
 };
 
 describe('Hello World Component', () => {
-  test('renders content', async () => {
-    renderComponent();
-
+  test('renders empty state', async () => {
+    renderComponent(false);
     await waitFor(() => {
-      expect(screen.getByTestId('hello-world-content').textContent).toEqual('Hello, First Name Last Name');
+      expect(screen.getByTestId('hello-world-first-name-btn').textContent).toEqual('Click Here to set up the button');
+    });
+  });
+
+  test('renders content when button is set', async () => {
+    renderComponent(true);
+    await waitFor(() => {
+      expect(screen.getByTestId('hello-world-text').textContent).toEqual('Your name is: Fullname');
     });
   });
 
   test('Opens modal', async () => {
-    renderComponent();
+    renderComponent(true);
 
-    fireEvent.click(screen.getByTestId('hello-world-first-name-btn'));
+    fireEvent.click(screen.getByTestId('hello-world-change-btn'));
 
     await waitFor(() => {
       expect(screen.getByTestId('hello-world-first-name-input')).not.toBeNull();
     });
   });
 
-  test('Update firstName', async () => {
-    const { queryByTestId } = renderComponent();
+  test('Update fullname', async () => {
+    const { queryByTestId } = renderComponent(true);
 
-    fireEvent.click(screen.getByTestId('hello-world-first-name-btn'));
+    fireEvent.click(screen.getByTestId('hello-world-change-btn'));
 
     await waitFor(() => {
       expect(screen.getByTestId('hello-world-first-name-input')).not.toBeNull();

@@ -1,4 +1,4 @@
-import { render, screen, waitFor, fireEvent } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { ComponentProps } from 'unbounce-smart-builder-sdk-types';
 
@@ -8,7 +8,7 @@ import { DataStructure } from './hello-world';
 const setMock = jest.fn();
 const closeMock = jest.fn();
 const props = {
-  data: { firstName: 'First Name', lastName: 'Last Name', styles: { textAlign: '' } },
+  data: { fullname: 'First Name', isButtonSet: false, styles: { textAlign: '' }, tracking: { trackingEnabled: true } },
   dispatch: (callback: any) => {
     callback({ get: () => ({ set: setMock }) });
   },
@@ -18,22 +18,17 @@ const renderComponent = () => {
   return render(<Panel closePanel={closeMock} {...props} />);
 };
 
+jest.mock('smart-builder-components', () => ({
+  FullScreenModal: () => <div></div>,
+  Toggle: () => <div></div>,
+}));
+
 describe('Control Panel Component', () => {
   test('renders content', async () => {
     renderComponent();
 
     await waitFor(() => {
-      expect(screen.getByTestId('custom-text-align-panel').textContent).toContain('Where do you want that text');
-    });
-  });
-
-  test('Update alignment', async () => {
-    renderComponent();
-
-    fireEvent.click(screen.getByTestId('button-text-align-center'));
-
-    await waitFor(() => {
-      expect(setMock).toHaveBeenCalledWith({ textAlign: 'center' });
+      expect(screen.getByTestId('hello-world-conversion-label').textContent).toContain('Conversion Tracking');
     });
   });
 });

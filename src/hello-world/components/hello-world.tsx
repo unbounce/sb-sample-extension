@@ -1,32 +1,82 @@
 import React, { useState } from 'react';
-import { WithControls, ControlButton, WithStyles, Script } from 'smart-builder-sdk';
+import { WithControls, WithStyles, Script, getAfterFormSubmitScript } from 'smart-builder-sdk';
 import { ComponentProps, WithStylesProps } from 'unbounce-smart-builder-sdk-types';
 
-import { ChangeFirstNameModal } from './change-first-name-modal';
+import manifest from '../../../manifest';
+import { EmptyActions, EmptyState, StyledImg, Wrapper, Text } from '../styled';
+import { ChangeFullNameModal } from './change-full-name-modal';
 import { Panel } from './control-panel';
+import { OptionsControlButton } from './options-control-button';
 import { getInlineScript, runOnloadMethod } from './script';
 
-export type DataStructure = { firstName: string; lastName: string; styles: { textAlign: string } };
+export type DataStructure = {
+  fullname: string;
+  isButtonSet: boolean;
+  styles: { textAlign: string };
+  tracking: { trackingEnabled: boolean };
+};
 
-const HelloWorld = ({ data, dispatch, className, mode }: ComponentProps<DataStructure, WithStylesProps>) => {
-  const { firstName, lastName } = data;
+const HelloWorld = ({ data, dispatch, className, mode, entityId }: ComponentProps<DataStructure, WithStylesProps>) => {
+  const { fullname, isButtonSet, tracking } = data;
   const [showModal, setShowModal] = useState(false);
+  const buttonId = `myAppButton-${entityId}`;
 
-  const updateFirstName = (newFirstName: string) => {
-    dispatch((api) => api.get('firstName').set(newFirstName));
+  const updateFullName = (newFullName: string) => {
+    dispatch((api) => api.get('fullname').set(newFullName));
     setShowModal(false);
   };
   const isViewMode = mode.type === 'view';
 
   return (
     <>
-      <div data-testid="hello-world-content" className={className}>
-        Hello,{' '}
-        <button data-testid="hello-world-first-name-btn" onClick={() => setShowModal(true)}>
-          {firstName}
-        </button>{' '}
-        {lastName}
-      </div>
+      {isButtonSet ? (
+        <>
+          <Wrapper>
+            <Text data-testid="hello-world-text">{`Your name is: ${fullname}`}</Text>
+            {/* You need to pass "className" to your button so the style changes done in "Design Settings" can be applied */}
+            <button
+              id={buttonId}
+              className={className}
+              data-testid="hello-world-change-btn"
+              onClick={() => setShowModal(true)}
+            >
+              Click here to change your name
+            </button>
+          </Wrapper>
+          {tracking.trackingEnabled && mode.type === 'publish' ? (
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                (function () {
+                  // Grab the form and add the conversion tracking into the submit script.
+                  const button = document.getElementById('${buttonId}');
+                  // This is a simple example of how to add conversion tracking to your app, try it on a public page by clicking the button
+                  button.onclick=function () { 
+                    ${getAfterFormSubmitScript(buttonId, true)}
+                  }
+                }())
+              `,
+              }}
+            />
+          ) : null}
+          {showModal && (
+            <ChangeFullNameModal fullname={fullname} onUpdate={updateFullName} onClose={() => setShowModal(false)} />
+          )}
+        </>
+      ) : (
+        <EmptyState data-testid="hello-world-content">
+          <StyledImg src={manifest.iconUrl} alt="logo" />
+          <EmptyActions className="empty-actions">
+            <button
+              className={className}
+              data-testid="hello-world-first-name-btn"
+              onClick={() => dispatch((api) => api.get('isButtonSet').set(true))}
+            >
+              Click Here to set up the button
+            </button>
+          </EmptyActions>
+        </EmptyState>
+      )}
       {/* To test the External Script we are loading momentjs from a CDN(we chose moment just for simplicity), after loading the library the onload method will run. If you see in the example the mode is set to view and we are using condition: isViewMode. To test it in "edit" mode, you can modify mode to edit and condition to true and the alert should show when editing your landing page  */}
       {isViewMode ? (
         <Script
@@ -42,32 +92,23 @@ const HelloWorld = ({ data, dispatch, className, mode }: ComponentProps<DataStru
       ) : null}
       {/* To test the Inline Script go to view mode and check the console in devtools, you will get the log coming from getInlineScript() */}
       {isViewMode ? <Script mode={mode.type} dependencies={[]} inlineScript={getInlineScript()} /> : null}
-
-      {showModal && (
-        <ChangeFirstNameModal firstName={firstName} onUpdate={updateFirstName} onClose={() => setShowModal(false)} />
-      )}
     </>
   );
 };
 
-const textAlignLabel = 'My own text align';
+const textAlignLabel = 'Settings';
 
 export default WithStyles(
   WithControls(HelloWorld, [
-    'text-align', // You can pass the id of a registered control
     {
-      // Or can define your own
-      id: 'custom-text-align',
+      // You can define your own control
+      id: 'settings-control',
       label: textAlignLabel,
-      Button: (props) => (
-        <ControlButton label={textAlignLabel} active={false} {...props}>
-          An Icon
-        </ControlButton>
-      ),
+      Button: (props) => <OptionsControlButton label={textAlignLabel} {...props} />,
       Panel,
-      type: 'subtoolbar',
     },
+    'design-button', // And you can also pass the id of a registered control, in this case this is the id for "Design Settings"
   ]),
   'styles', // The object key where styles are applied from the Schema
-  'paragraph', // Optional: value from the styleguide to be applied for default styling
+  'button', // Optional: value from the styleguide to be applied for default styling
 );

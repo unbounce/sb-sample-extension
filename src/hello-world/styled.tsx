@@ -1,4 +1,38 @@
+import { Toggle } from 'smart-builder-components';
 import styled from 'styled-components';
+
+export const Text = styled.div`
+  text-align: center;
+  line-height: 58px;
+  letter-spacing: 0px;
+  color: #202020;
+`;
+
+export const Wrapper = styled.div`
+  display: grid;
+`;
+
+export const EmptyState = styled.div`
+  background: #ededed;
+  display: grid;
+  justify-content: center;
+  grid-gap: 20px;
+  padding: 30px;
+  text-align: center;
+  width: 100%;
+`;
+
+export const StyledImg = styled.img`
+  max-height: 100px;
+  max-width: 50%;
+  margin: auto;
+`;
+
+export const EmptyActions = styled.div`
+  display: grid;
+  justify-content: center;
+  grid-gap: 5px;
+`;
 
 export const CloseButton = styled.button`
   align-items: center;
@@ -41,4 +75,26 @@ export const Overlay = styled.div`
   right: 0;
   top: 0;
   z-index: 22;
+`;
+
+export const StyledLabelConversion = styled.label`
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 20.11px;
+  font: 400 16px 'Source Sans Pro';
+  color: #303030;
+`;
+
+export const StyledToggle = styled(Toggle)`
+  transform: scale(0.5);
+  margin-right: -15px;
+`;
+
+export const StyledForm = styled.form`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 `;
