@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Modal, CloseButton, Overlay } from '../styled';
 import { Props } from '../types';
 
-export const ChangeFirstNameModal = ({ fullname, onUpdate, onClose }: Props) => {
+export const ChangeFullNameModal = ({ fullname, onUpdate, onClose }: Props) => {
   const [localFullname, setLocalFullname] = useState(fullname);
   return (
     <>

@@ -4,7 +4,7 @@ import { ComponentProps, WithStylesProps } from 'unbounce-smart-builder-sdk-type
 
 import manifest from '../../../manifest';
 import { EmptyActions, EmptyState, StyledImg, Wrapper, Text } from '../styled';
-import { ChangeFirstNameModal } from './change-first-name-modal';
+import { ChangeFullNameModal } from './change-full-name-modal';
 import { Panel } from './control-panel';
 import { OptionsControlButton } from './options-control-button';
 import { getInlineScript, runOnloadMethod } from './script';
@@ -21,8 +21,8 @@ const HelloWorld = ({ data, dispatch, className, mode, entityId }: ComponentProp
   const [showModal, setShowModal] = useState(false);
   const buttonId = `myAppButton-${entityId}`;
 
-  const updateFirstName = (newFirstName: string) => {
-    dispatch((api) => api.get('fullname').set(newFirstName));
+  const updateFullName = (newFullName: string) => {
+    dispatch((api) => api.get('fullname').set(newFullName));
     setShowModal(false);
   };
   const isViewMode = mode.type === 'view';
@@ -60,7 +60,7 @@ const HelloWorld = ({ data, dispatch, className, mode, entityId }: ComponentProp
             />
           ) : null}
           {showModal && (
-            <ChangeFirstNameModal fullname={fullname} onUpdate={updateFirstName} onClose={() => setShowModal(false)} />
+            <ChangeFullNameModal fullname={fullname} onUpdate={updateFullName} onClose={() => setShowModal(false)} />
           )}
         </>
       ) : (
