@@ -1,3 +1,5 @@
+const smartBuilderSdk = window['smartBuilderSdk'];
+
 export const {
   useApiRequest,
   SdkProvider,
@@ -13,8 +15,10 @@ export const {
   WithStyles,
   ControlButton,
   useImageGallery,
-  PlainTextElement,
-  RichTextElement,
+  spacing,
+  fontSize,
+  colors,
+  fontWeight,
 } = window['smartBuilderSdk'];
 
-export default window['smartBuilderSdk'];
+export default smartBuilderSdk;

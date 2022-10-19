@@ -25,4 +25,5 @@ export const {
   TabAnchor,
   Tabs,
   Tooltip,
+  HelpIcon,
 } = window['uiComponents'];

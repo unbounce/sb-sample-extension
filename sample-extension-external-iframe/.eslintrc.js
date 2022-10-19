@@ -7,7 +7,7 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
   ],
   parser: '@typescript-eslint/parser',
-  parserOptions: { project: ['./tsconfig.json'] },
+  parserOptions: { project: './tsconfig.json', tsconfigRootDir: __dirname },
   plugins: ['@typescript-eslint', 'react-hooks', 'jsx-a11y'],
   rules: {
     // Temporary until we can import types from the SDK lib

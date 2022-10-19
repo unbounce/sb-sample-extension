@@ -1,7 +1,7 @@
 import type { Manifest } from 'unbounce-smart-builder-sdk-types';
 
 const manifest: Manifest = {
-  appId: '@external/helloWorld',
+  appId: '@external/helloAgainWorld',
   version: '0.1',
   type: 'enhancement',
   name: 'Hello World',
