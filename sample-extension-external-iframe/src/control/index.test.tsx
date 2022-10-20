@@ -3,24 +3,71 @@ import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
-import { mockUIComponents, mockSmartBuilderShared } from '../../../__mocks__';
 import { CalendlyControlComponent } from './index';
 
 const mockFunction = jest.fn();
 const mockDispatch = jest.fn();
 
-jest.mock('../../../config/global-dependencies/ui-components', () => ({
-  ...mockUIComponents,
+type mockChildren = {
+  children: JSX.Element;
+  minimal: string;
+};
+
+const ChildComponent = ({ children, ...props }: mockChildren) => <div {...props}>{children}</div>;
+
+jest.mock('../../config/global-dependencies/smart-builder-components', () => ({
+  Checkbox: () => <div></div>,
+  Label: ChildComponent,
+  InputField: () => <div></div>,
+  GroupRadioButton: () => <div></div>,
+  RadioButton: () => <div></div>,
+  TextArea: () => <div></div>,
+  FieldValidation: () => <div></div>,
+  DatePicker: () => <div></div>,
+  DateRangePicker: () => <div></div>,
+  Toggle: ChildComponent,
+  DeleteButton: () => <div></div>,
+  AddButton: () => <div></div>,
+  Button: ChildComponent,
+  ButtonLink: () => <div></div>,
+  Link: () => <div></div>,
+  MoreButton: () => <div></div>,
+  IconButton: () => <div></div>,
+  Dropdown: () => <div></div>,
+  SearchBar: () => <div></div>,
+  Tab: () => <div></div>,
+  TabAnchor: () => <div></div>,
+  Tabs: () => <div></div>,
+  Tooltip: () => <div></div>,
+  HelpIcon: () => <div></div>,
+  FullScreenModal: () => <div></div>,
+  CardContainer: () => <div></div>,
+  CardList: () => <div></div>,
+  CardListControls: () => <div></div>,
+  CardsListWrapper: () => <div></div>,
+  NoResults: () => <div></div>,
+  ColorInput: () => <div></div>,
 }));
 
-jest.mock('../../../config/global-dependencies/smart-builder-shared', () => ({
-  ...mockSmartBuilderShared,
-}));
-
-jest.mock('../ui-event-tracking/index.ts', () => ({
-  useUIEvents: jest.fn().mockImplementation(() => ({
-    sendEvent: jest.fn(),
-  })),
+jest.mock('../../config/global-dependencies/smart-builder-sdk', () => ({
+  useApiRequest: () => <div></div>,
+  SdkProvider: () => <div></div>,
+  OAuthProvider: () => <div></div>,
+  useOAuthContext: () => <div></div>,
+  useAppOauth: () => <div></div>,
+  getAfterFormSubmitScript: () => <div></div>,
+  createUIEventTracking: () => <div></div>,
+  usePaginateResults: () => <div></div>,
+  useImageGalleryContext: () => <div></div>,
+  Script: () => <div></div>,
+  WithControls: () => <div></div>,
+  WithStyles: () => <div></div>,
+  ControlButton: () => <div></div>,
+  useImageGallery: () => <div></div>,
+  spacing: () => <div></div>,
+  fontSize: () => <div></div>,
+  colors: () => <div></div>,
+  fontWeight: () => <div></div>,
 }));
 
 const renderCalendlyControl = (username: string) => {
@@ -49,7 +96,7 @@ describe('Calendly cotrol', () => {
     renderCalendlyControl('user-test');
 
     /* conversion displayed, 0 dispatch calls */
-    const conversionButton = screen.getByTestId('paypal-conversion-tracking');
+    const conversionButton = screen.getByTestId('app-conversion-tracking');
     expect(conversionButton).toBeInTheDocument();
     expect(mockDispatch).toBeCalledTimes(0);
 

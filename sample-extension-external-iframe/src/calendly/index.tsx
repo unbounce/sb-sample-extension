@@ -3,7 +3,7 @@ import { ControlButton, WithControls } from 'smart-builder-sdk';
 import { component, Schema } from 'ub-shared';
 
 import { CalendlyControlComponent } from '../control';
-import { CogIcon } from '../control/cog-icon';
+import { CogIcon } from '../icons/cog-icon';
 import { CalendlyViewer } from './calendly-viewer';
 
 const CalendlyComponentWithControls = WithControls(CalendlyViewer, [

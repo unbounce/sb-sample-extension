@@ -2,13 +2,7 @@ import React from 'react';
 import { InputField } from 'smart-builder-components';
 import styled from 'styled-components';
 
-interface InputProps {
-  value: number | string;
-  setValue: (newVal: number | string) => void;
-  label: string;
-  placeholder?: string;
-  type: 'number' | 'text';
-}
+import { InputProps } from '../types';
 
 export const Input = ({ value, setValue, type, label, placeholder }: InputProps) => {
   return (

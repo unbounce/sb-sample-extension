@@ -1,42 +1,11 @@
 import React from 'react';
 import { Button } from 'smart-builder-components';
 import { getAfterFormSubmitScript, Script } from 'smart-builder-sdk';
-import styled from 'styled-components';
 import type { ComponentProps } from 'unbounce-smart-builder-sdk-types';
 
 import manifest from '../../manifest';
+import { EmptyActions, EmptyState, StyledImage, Wrapper } from '../styled';
 import { Props } from '../types';
-
-const Wrapper = styled.div<{ configured: boolean; customHeight: number }>`
-  ${({ configured, customHeight }) =>
-    configured
-      ? `
-  width: 100%;
-  height: ${customHeight ? `${customHeight}px` : '580px'};`
-      : 'height: 100%'}
-`;
-
-const EmptyState = styled.div`
-  background: #ededed;
-  display: grid;
-  justify-content: center;
-  padding: 30px;
-  text-align: center;
-  width: 100%;
-  img {
-    max-height: 100px;
-    max-width: 70%;
-    margin: auto;
-  }
-  .empty-actions {
-    display: grid;
-    justify-content: center;
-    grid-gap: 5px;
-    a {
-      text-decoration: none;
-    }
-  }
-`;
 
 export const getCalendlyScript = (
   calendlyComponentId: string,
@@ -82,10 +51,10 @@ export const CalendlyViewer = (props: ComponentProps<Props>) => {
       <Wrapper customHeight={height} configured={!!username} id={calendlyComponentId}>
         {!username && (
           <EmptyState>
-            <img src={manifest.iconUrl} alt="logo" />
-            <div className="empty-actions">
+            <StyledImage src={manifest.iconUrl} alt="logo" />
+            <EmptyActions>
               <Button onClick={handleSetupButtonClick}>Set Up an Event</Button>
-            </div>
+            </EmptyActions>
           </EmptyState>
         )}
       </Wrapper>
