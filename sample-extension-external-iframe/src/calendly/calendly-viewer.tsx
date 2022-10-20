@@ -12,11 +12,11 @@ export const getCalendlyScript = (
   username: string,
   trackConversion: boolean,
 ) => `(function () {
-  var el = document.getElementById('${calendlyComponentId}');
+  var el = document.getElementById('${calendlyComponentId}'); // The element our app use
   if (el && el?.innerHTML) {
     el.innerHTML = '';
   }
-  Calendly.initInlineWidget({
+  Calendly.initInlineWidget({ // Calendly function to insert our calendar 
     url: 'https://calendly.com/${username}',
     parentElement: document.getElementById('${calendlyComponentId}'),
     prefill: {},
@@ -28,7 +28,7 @@ export const getCalendlyScript = (
    
   window.addEventListener("message", function(e) {
     if(isCalendlyEvent(e) && ${trackConversion} && e.data.event === "calendly.event_scheduled") {
-      ${getAfterFormSubmitScript(calendlyComponentId, trackConversion)}
+      ${getAfterFormSubmitScript(calendlyComponentId, trackConversion)} // Runs our track conversion for each "scheduled event"
     }
   });
 })()`;
@@ -62,9 +62,9 @@ export const CalendlyViewer = (props: ComponentProps<Props>) => {
         mode={mode.type}
         externalScript={{
           scriptId: 'calendly-script',
-          src: 'https://assets.calendly.com/assets/external/widget.js',
-          onloadMethod: getCalendlyScript(calendlyComponentId, username, trackConversion.trackingEnabled),
-          condition: !!username,
+          src: 'https://assets.calendly.com/assets/external/widget.js', // Your script's source, in this case calendly's widget 
+          onloadMethod: getCalendlyScript(calendlyComponentId, username, trackConversion.trackingEnabled), // The script your app will load
+          condition: !!username, // You can use any condition as boolean, in this case we use the username
         }}
         dependencies={[username, height]}
       />
