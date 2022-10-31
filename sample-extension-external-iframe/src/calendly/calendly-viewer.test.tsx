@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { _Script } from 'unbounce-smart-builder-sdk-types';
+import { _Script } from 'smart-builder-sdk';
 
 import { CalendlyViewer, getCalendlyScript } from './calendly-viewer';
 

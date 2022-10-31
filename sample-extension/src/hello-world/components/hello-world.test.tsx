@@ -1,6 +1,6 @@
-import { render, screen, waitFor, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
-import { ComponentProps, _Script } from 'unbounce-smart-builder-sdk-types';
+import { ComponentProps, _Script } from 'smart-builder-sdk';
 
 import HelloWorld, { DataStructure } from './hello-world';
 
@@ -19,7 +19,7 @@ jest.mock('smart-builder-sdk', () => {
   };
 });
 
-jest.mock('smart-builder-components', () => ({
+jest.mock('smart-builder-sdk', () => ({
   FullScreenModal: () => <div></div>,
   Toggle: () => <div></div>,
 }));
