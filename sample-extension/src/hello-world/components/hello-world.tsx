@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
-import {
-  ComponentProps,
-  getAfterFormSubmitScript,
-  Script,
-  WithControls,
-  WithStyles,
-  WithStylesProps,
-} from 'smart-builder-sdk';
+import { ComponentProps, getAfterFormSubmitScript, Script, WithControls, WithStylesProps } from 'smart-builder-sdk';
+import { WithStyles } from 'ub-shared';
 
 import manifest from '../../../manifest';
 import { EmptyActions, EmptyState, StyledImg, Text, Wrapper } from '../styled';
