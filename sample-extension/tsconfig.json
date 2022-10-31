@@ -19,7 +19,7 @@
       "ub-shared": ["config/global-dependencies/ub-shared.ts"],
       "smart-builder-components": ["config/global-dependencies/smart-builder-components.ts"]
     },
-    "typeRoots": ["./node_modules/@types", "./node_modules/smart-builder-sdk-type"],
+    "typeRoots": ["./node_modules/@types"],
     "declaration": false,
     "resolveJsonModule": true,
     "keyofStringsOnly": true,
