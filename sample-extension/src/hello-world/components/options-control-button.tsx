@@ -1,6 +1,5 @@
 import React from 'react';
-import { ControlButton } from 'smart-builder-sdk';
-import { ControlButtonProps } from 'unbounce-smart-builder-sdk-types';
+import { ControlButton, ControlButtonProps } from 'smart-builder-sdk';
 
 import { CogIcon } from '../icons/cog-icon';
 

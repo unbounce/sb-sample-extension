@@ -1,27 +1,22 @@
-import { render, screen, waitFor, fireEvent } from '@testing-library/react';
-import React from 'react';
-import { ComponentProps, _Script } from 'unbounce-smart-builder-sdk-types';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import React, { Component } from 'react';
+import { ComponentProps } from 'smart-builder-sdk';
 
 import HelloWorld, { DataStructure } from './hello-world';
 
-const ScriptMock: _Script = ({ ...props }) => (
+const ScriptMock = ({ ...props }) => (
   <script data-testid={props?.externalScript?.scriptId} src={props?.externalScript?.src}>
     {props?.externalScript?.onloadMethod}
   </script>
 );
 
-jest.mock('smart-builder-sdk', () => {
-  const ogModule = jest.requireActual('smart-builder-sdk');
+jest.mock('smart-builder-sdk', () => ({
+  ...jest.requireActual('smart-builder-sdk'),
+  Script: ScriptMock,
+}));
 
-  return {
-    ...ogModule,
-    Script: ScriptMock,
-  };
-});
-
-jest.mock('smart-builder-components', () => ({
-  FullScreenModal: () => <div></div>,
-  Toggle: () => <div></div>,
+jest.mock('ub-shared', () => ({
+  WithStyles: (component: Component) => component,
 }));
 
 const setMock = jest.fn();

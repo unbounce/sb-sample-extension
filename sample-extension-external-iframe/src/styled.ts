@@ -1,5 +1,4 @@
-import { Toggle } from 'smart-builder-components';
-import { colors, fontSize, spacing } from 'smart-builder-sdk';
+import { colors, fontSize, spacing, Toggle } from 'smart-builder-sdk';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div<{ configured: boolean; customHeight: number }>`

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Button } from 'smart-builder-components';
-import { getAfterFormSubmitScript, Script } from 'smart-builder-sdk';
-import type { ComponentProps } from 'unbounce-smart-builder-sdk-types';
+import type { ComponentProps } from 'smart-builder-sdk';
+import { Button, getAfterFormSubmitScript, Script } from 'smart-builder-sdk';
 
 import manifest from '../../manifest';
 import { EmptyActions, EmptyState, StyledImage, Wrapper } from '../styled';
@@ -28,7 +27,10 @@ export const getCalendlyScript = (
    
   window.addEventListener("message", function(e) {
     if(isCalendlyEvent(e) && ${trackConversion} && e.data.event === "calendly.event_scheduled") {
-      ${getAfterFormSubmitScript(calendlyComponentId, trackConversion)} // Runs our track conversion for each "scheduled event"
+      ${getAfterFormSubmitScript(
+        calendlyComponentId,
+        trackConversion,
+      )} // Runs our track conversion for each "scheduled event"
     }
   });
 })()`;
@@ -62,7 +64,7 @@ export const CalendlyViewer = (props: ComponentProps<Props>) => {
         mode={mode.type}
         externalScript={{
           scriptId: 'calendly-script',
-          src: 'https://assets.calendly.com/assets/external/widget.js', // Your script's source, in this case calendly's widget 
+          src: 'https://assets.calendly.com/assets/external/widget.js', // Your script's source, in this case calendly's widget
           onloadMethod: getCalendlyScript(calendlyComponentId, username, trackConversion.trackingEnabled), // The script your app will load
           condition: !!username, // You can use any condition as boolean, in this case we use the username
         }}

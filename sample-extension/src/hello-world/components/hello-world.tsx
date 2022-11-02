@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { WithControls, WithStyles, Script, getAfterFormSubmitScript } from 'smart-builder-sdk';
-import { ComponentProps, WithStylesProps } from 'unbounce-smart-builder-sdk-types';
+import { ComponentProps, getAfterFormSubmitScript, Script, WithControls, WithStylesProps } from 'smart-builder-sdk';
+import { WithStyles } from 'ub-shared';
 
 import manifest from '../../../manifest';
-import { EmptyActions, EmptyState, StyledImg, Wrapper, Text } from '../styled';
+import { EmptyActions, EmptyState, StyledImg, Text, Wrapper } from '../styled';
 import { ChangeFullNameModal } from './change-full-name-modal';
 import { Panel } from './control-panel';
 import { OptionsControlButton } from './options-control-button';

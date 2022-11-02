@@ -1,9 +1,9 @@
+import type { Ub } from 'smart-builder-sdk';
+
 declare global {
-  interface Window {
-    ub: {
-      component: any;
+  interface ExtendedWindow {
+    ub: Ub & {
       section: any;
-      Schema: any;
       registerComponent: (appBundle: any) => void;
       registerSection: (appBundle: any) => void;
       registerControl: (appControl: any) => void;
@@ -12,6 +12,15 @@ declare global {
   }
 }
 
-export const { Schema, component, section, registerComponent, registerSection, registerControl, registerHook } =
-  window['ub'];
-export default window['ub'];
+export const {
+  Schema,
+  component,
+  section,
+  registerComponent,
+  registerSection,
+  registerControl,
+  registerHook,
+  useRegisteredEntitiesByPath,
+  WithStyles,
+} = (window as unknown as ExtendedWindow)['ub'];
+export default (window as unknown as ExtendedWindow)['ub'];

@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { screen, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
@@ -49,33 +49,12 @@ jest.mock('../../config/global-dependencies/smart-builder-components', () => ({
   ColorInput: () => <div></div>,
 }));
 
-jest.mock('../../config/global-dependencies/smart-builder-sdk', () => ({
-  useApiRequest: () => <div></div>,
-  SdkProvider: () => <div></div>,
-  OAuthProvider: () => <div></div>,
-  useOAuthContext: () => <div></div>,
-  useAppOauth: () => <div></div>,
-  getAfterFormSubmitScript: () => <div></div>,
-  createUIEventTracking: () => <div></div>,
-  usePaginateResults: () => <div></div>,
-  useImageGalleryContext: () => <div></div>,
-  Script: () => <div></div>,
-  WithControls: () => <div></div>,
-  WithStyles: () => <div></div>,
-  ControlButton: () => <div></div>,
-  useImageGallery: () => <div></div>,
-  spacing: () => <div></div>,
-  fontSize: () => <div></div>,
-  colors: () => <div></div>,
-  fontWeight: () => <div></div>,
-}));
-
 const renderCalendlyControl = (username: string) => {
   return render(
     <CalendlyControlComponent
       closePanel={mockFunction}
       data={{
-        username: username,
+        username,
         height: 0,
         trackConversion: {
           trackingEnabled: false,
@@ -92,15 +71,15 @@ const renderCalendlyControl = (username: string) => {
 };
 
 describe('Calendly cotrol', () => {
+  beforeEach(() => jest.resetAllMocks());
+
   test('renders conversion tracking and dispatch call', () => {
     renderCalendlyControl('user-test');
 
-    /* conversion displayed, 0 dispatch calls */
     const conversionButton = screen.getByTestId('app-conversion-tracking');
     expect(conversionButton).toBeInTheDocument();
     expect(mockDispatch).toBeCalledTimes(0);
 
-    /* conversion clicked, dispatch called 1 time */
     userEvent.click(conversionButton);
     expect(mockDispatch).toBeCalledTimes(1);
   });
@@ -108,25 +87,24 @@ describe('Calendly cotrol', () => {
   test('renders Apply button and dispatch call', () => {
     renderCalendlyControl('user-test');
 
-    /* Apply button displayed, 1 dispatch call */
     const applyButton = screen.getByText(/Apply/i);
-    expect(applyButton).toBeInTheDocument();
-    expect(mockDispatch).toBeCalledTimes(1);
+    expect(applyButton).toBeTruthy();
 
-    /* Apply button clicked, dispatch called 2 times */
+    const input = screen.getByPlaceholderText('steve-jones/30min');
+    fireEvent.change(input, { target: { value: 'boss-jones/30min' } });
+
     userEvent.click(applyButton);
-    expect(mockDispatch).toBeCalledTimes(2);
+    expect(mockDispatch).toBeCalledTimes(1);
   });
 
   test('renders Apply button as disabled when user is incorrect', () => {
     renderCalendlyControl('');
 
-    /* Apply button has 'disabled' attribute */
     const applyButton = screen.getByText(/Apply/i);
     expect(applyButton).toHaveAttribute('disabled');
 
-    /* Apply button clicked, dispatch calls should still be 2 since button is disabled */
+    /* Apply button clicked, dispatch should not be called */
     userEvent.click(applyButton);
-    expect(mockDispatch).toBeCalledTimes(2);
+    expect(mockDispatch).not.toBeCalled();
   });
 });
