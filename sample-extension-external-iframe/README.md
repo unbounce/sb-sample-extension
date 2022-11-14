@@ -1,4 +1,4 @@
-# sb-sample-extension
+# sb-sample-extension-external-iframe
 
 ## How to get started
 

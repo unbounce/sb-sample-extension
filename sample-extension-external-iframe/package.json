@@ -17,7 +17,8 @@
     "lint:prettier": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "build": "rm -rf dist && webpack --env production",
-    "start": "rm -rf dist && npm run compile-manifest && webpack --watch",
+    "start": "concurrently --names 'CLIENT,SERVER' --prefix-colors 'yellow,blue' --kill-others \"npm run client\" \"npm run serve\"",
+    "client": "rm -rf dist && npm run compile-manifest && webpack --watch",
     "serve": "node serve-local-files.js",
     "init-repo-settings": "sh bin/init-repo-settings.sh",
     "compile-manifest": "tsc --project tsconfig.manifest.json"
@@ -48,6 +49,7 @@
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/typescript-estree": "^4.25.0",
     "babel-loader": "^8.0.6",
+    "concurrently": "^7.5.0",
     "cors": "^2.8.5",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.4.0",
