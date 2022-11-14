@@ -47,14 +47,13 @@ At this point, you should be good to go. Follow the instructions below to start 
 ## Developing apps locally using the Smart Builder
 
 1. Run `npm i` from the root directory.
-2. Run `npm start`. This will build the app and watch for changes.
-3. In a different terminal, run `npm run serve`
-4. Go to app.unbounce.com and create a Smart Builder page on the client where local development has been enabled.
-5. Open the apps sidebar panel and scroll down until you see "Test Your App".
-6. Set the port your app is running on and click Add.
-7. Your app will now be displayed in the sidebar. Press the + button in the corner.
-8. Voila - you are now using the local version your app running on your machine.
-9. To remove your app click "clear".
+2. Run `npm start`. This will build the app, run the server, and watch for changes.
+3. Go to app.unbounce.com and create a Smart Builder page on the client where local development has been enabled.
+4. Open the apps sidebar panel and scroll down until you see "Test Your App".
+5. Set the port your app is running on and click Add.
+6. Your app will now be displayed in the sidebar. Press the + button in the corner.
+7. Voila - you are now using the local version your app running on your machine.
+8. To remove your app click "clear".
 
 ## How Pull Request (PR) Reviews are done
 
