@@ -58,7 +58,7 @@
     "eslint-plugin-unicorn": "^32.0.1",
     "express": "^4.17.1",
     "jest": "^27.3.1",
-    "nodemon": "^2.0.12",
+    "nodemon": "3.0.1",
     "prettier": "^2.3.0",
     "tsconfig-paths-jest": "^0.0.1",
     "typescript": "4.6.4",
@@ -69,6 +69,8 @@
   "peerDependencies": {
     "react": "^17.0.2",
     "smart-builder-sdk": "https://app-assets-unbounce-com.s3.amazonaws.com/content-smart-builder-apps/smart-builder-sdk/smart-builder-sdk-1.0.0-beta.90.tgz",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "semver": "^7.5.4",
+    "simple-update-notifier": "^2.0.0"
   }
 }
