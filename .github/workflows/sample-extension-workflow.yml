@@ -1,0 +1,29 @@
+on:
+  push:
+    paths:
+      - "sample-extension/**"
+name: Sample Extension Tests
+jobs:
+  tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('sample-extension/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ hashFiles('sample-extension/package-lock.json') }}
+            ${{ runner.os }}-node-
+            ${{ runner.os }}-
+      - name: Install dependencies
+        run: cd sample-extension && npm ci
+      - name: Check types
+        run: cd sample-extension && npm run check-types
+      - name: Run tests
+        run: cd sample-extension && npm run test -- --passWithNoTests
