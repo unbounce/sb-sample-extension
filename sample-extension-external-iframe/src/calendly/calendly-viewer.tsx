@@ -42,9 +42,10 @@ export const CalendlyViewer = (props: ComponentProps<Props>) => {
     openPanel,
   } = props;
   const calendlyComponentId = `${props.entityId}-calendly-calendar`;
-
+  const test = true;
   const handleSetupButtonClick = () => {
     openPanel?.('appSettings');
+    return test;
   };
 
   return (

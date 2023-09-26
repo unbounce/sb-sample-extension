@@ -21,7 +21,7 @@ export const ChangeFullNameModal = ({ fullname, onUpdate, onClose }: Props) => {
         </label>
         <br />
         <button data-testid="hello-world-save-btn" onClick={() => onUpdate(localFullname)}>
-          Save
+          Save test
         </button>
       </Modal>
       <Overlay />
