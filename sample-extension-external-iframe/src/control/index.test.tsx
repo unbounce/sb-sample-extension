@@ -61,6 +61,7 @@ const renderCalendlyControl = (username: string) => {
         },
       }}
       dispatch={mockDispatch}
+      entityDispatch={jest.fn()}
       isSelected={true}
       entityId={''}
       mode={{
