@@ -1,6 +1,6 @@
+import type { ComponentProps } from '@unbounce/smart-builder-sdk';
+import { Button, getAfterFormSubmitScript, Script } from '@unbounce/smart-builder-sdk';
 import React from 'react';
-import type { ComponentProps } from 'smart-builder-sdk';
-import { Button, getAfterFormSubmitScript, Script } from 'smart-builder-sdk';
 
 import manifest from '../../manifest';
 import { EmptyActions, EmptyState, StyledImage, Wrapper } from '../styled';

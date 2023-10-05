@@ -1,5 +1,11 @@
+import {
+  ComponentProps,
+  getAfterFormSubmitScript,
+  Script,
+  WithControls,
+  WithStylesProps,
+} from '@unbounce/smart-builder-sdk';
 import React, { useState } from 'react';
-import { ComponentProps, getAfterFormSubmitScript, Script, WithControls, WithStylesProps } from 'smart-builder-sdk';
 import { WithStyles } from 'ub-shared';
 
 import manifest from '../../../manifest';

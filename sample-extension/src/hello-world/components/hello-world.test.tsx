@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { ComponentProps } from '@unbounce/smart-builder-sdk';
 import React, { Component } from 'react';
-import { ComponentProps } from 'smart-builder-sdk';
 
 import HelloWorld, { DataStructure } from './hello-world';
 
@@ -39,6 +39,7 @@ const renderComponent = (isButtonSet: boolean) => {
         isButtonSet: isButtonSet,
       }}
       dispatch={dispatch}
+      entityDispatch={jest.fn()}
       mode={mode}
       isSelected={false}
       entityId={''}

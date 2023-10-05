@@ -1,9 +1,9 @@
-import type { Manifest } from 'smart-builder-sdk';
+import type { Manifest } from '@unbounce/smart-builder-sdk';
 
 const manifest: Manifest = {
   appId: '@external/helloWorld',
   version: '0.1',
-  type: 'enhancement',
+  type: 'utility',
   name: 'Hello World',
   isBeta: true,
   isSwappable: true,

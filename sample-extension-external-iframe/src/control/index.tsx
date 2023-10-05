@@ -1,6 +1,6 @@
+import { Button, ComponentProps, Tooltip } from '@unbounce/smart-builder-sdk';
 import React, { useState } from 'react';
 import { HelpIcon } from 'smart-builder-components';
-import { Button, ComponentProps, Tooltip } from 'smart-builder-sdk';
 
 import {
   Container,
