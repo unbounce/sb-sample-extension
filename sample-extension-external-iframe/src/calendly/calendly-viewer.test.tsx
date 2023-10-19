@@ -33,6 +33,7 @@ const renderCalendlyComponent = () => {
       mode={{
         type: 'edit',
       }}
+      entityDispatch={jest.fn()}
     />,
   );
 };
