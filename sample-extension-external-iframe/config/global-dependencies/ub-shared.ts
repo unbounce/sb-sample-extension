@@ -1,4 +1,4 @@
-import type { Ub } from 'smart-builder-sdk';
+import type { Ub } from '@unbounce/smart-builder-sdk';
 
 declare global {
   interface ExtendedWindow {
@@ -13,8 +13,6 @@ declare global {
 }
 
 export const {
-  Schema,
-  component,
   section,
   registerComponent,
   registerSection,

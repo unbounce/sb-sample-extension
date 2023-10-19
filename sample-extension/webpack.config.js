@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = (env) => ({
   entry: {
@@ -25,6 +26,7 @@ module.exports = (env) => ({
       },
     ],
   },
+  plugins: [new webpack.ProvidePlugin({ process: 'process/browser' })],
   resolve: {
     extensions: ['.js', '.tsx', '.ts'],
     alias: {
@@ -37,6 +39,6 @@ module.exports = (env) => ({
     react: 'react',
     'react-dom': 'reactDom',
     'styled-components': 'styled',
-    'smart-builder-sdk': 'smartBuilderSdk',
+    '@emotion/react': '@emotion/react',
   },
 });

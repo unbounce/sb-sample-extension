@@ -10,10 +10,6 @@ module.exports = {
   parserOptions: { project: './tsconfig.json', tsconfigRootDir: __dirname },
   plugins: ['@typescript-eslint', 'react-hooks', 'jsx-a11y'],
   rules: {
-    // Temporary until we can import types from the SDK lib
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-unsafe-member-access': 'off',
-
     'no-console': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/naming-convention': 'off',

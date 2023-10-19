@@ -1,4 +1,4 @@
-import { colors, fontSize, spacing, Toggle } from 'smart-builder-sdk';
+import { colors, fontSize, spacing, Toggle } from '@unbounce/smart-builder-sdk';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div<{ configured: boolean; customHeight: number }>`

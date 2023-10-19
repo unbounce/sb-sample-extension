@@ -22,7 +22,6 @@
     "typeRoots": ["./node_modules/@types"],
     "declaration": false,
     "resolveJsonModule": true,
-    "keyofStringsOnly": true,
     "esModuleInterop": true,
     "noUnusedLocals": true,
     "moduleResolution": "node"

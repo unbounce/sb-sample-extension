@@ -28,6 +28,7 @@ const renderCalendlyComponent = () => {
         },
       }}
       dispatch={mockFunction}
+      entityDispatch={jest.fn()}
       isSelected={false}
       entityId={''}
       mode={{
