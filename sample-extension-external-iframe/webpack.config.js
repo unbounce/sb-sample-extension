@@ -48,6 +48,6 @@ module.exports = (env) => ({
     react: 'react',
     'react-dom': 'reactDom',
     'styled-components': 'styled',
-    'smart-builder-sdk': 'smartBuilderSdk',
+    '@unbounce/smart-builder-sdk': 'smartBuilderSdk',
   },
 });

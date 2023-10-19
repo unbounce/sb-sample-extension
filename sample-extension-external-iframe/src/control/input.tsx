@@ -1,5 +1,5 @@
+import { InputField } from '@unbounce/smart-builder-sdk';
 import React from 'react';
-import { InputField } from 'smart-builder-sdk';
 import styled from 'styled-components';
 
 import { InputProps } from '../types';

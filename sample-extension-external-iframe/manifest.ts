@@ -1,4 +1,4 @@
-import type { Manifest } from 'smart-builder-sdk';
+import type { Manifest } from '@unbounce/smart-builder-sdk';
 
 const manifest: Manifest = {
   appId: '@external/helloAgainWorld',

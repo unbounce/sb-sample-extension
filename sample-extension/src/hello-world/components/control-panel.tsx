@@ -1,5 +1,5 @@
+import { ControlPanelProps } from '@unbounce/smart-builder-sdk';
 import React from 'react';
-import { ControlPanelProps } from 'smart-builder-sdk';
 
 import { StyledLabelConversion, StyledToggle } from '../styled';
 import { DataStructure } from './hello-world';

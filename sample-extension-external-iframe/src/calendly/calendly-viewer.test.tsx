@@ -12,8 +12,8 @@ const ScriptMock = ({ ...props }) => (
   </script>
 );
 
-jest.mock('smart-builder-sdk', () => ({
-  ...jest.requireActual('smart-builder-sdk'),
+jest.mock('@unbounce/smart-builder-sdk', () => ({
+  ...jest.requireActual('@unbounce/smart-builder-sdk'),
   Script: ScriptMock,
 }));
 
