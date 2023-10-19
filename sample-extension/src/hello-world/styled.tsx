@@ -1,4 +1,4 @@
-import { Toggle } from 'smart-builder-sdk';
+import { Toggle } from '@unbounce/smart-builder-sdk';
 import styled from 'styled-components';
 
 export const Text = styled.div`

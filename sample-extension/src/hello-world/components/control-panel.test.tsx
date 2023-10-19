@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
+import { ComponentProps } from '@unbounce/smart-builder-sdk';
 import React from 'react';
-import { ComponentProps } from 'smart-builder-sdk';
 
 import { Panel } from './control-panel';
 import { DataStructure } from './hello-world';
@@ -18,7 +18,7 @@ const renderComponent = () => {
   return render(<Panel closePanel={closeMock} {...props} />);
 };
 
-jest.mock('smart-builder-sdk', () => ({
+jest.mock('@unbounce/smart-builder-sdk', () => ({
   FullScreenModal: () => <div></div>,
   Toggle: () => <div></div>,
 }));

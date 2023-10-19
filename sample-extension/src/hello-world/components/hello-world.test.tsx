@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { ComponentProps } from '@unbounce/smart-builder-sdk';
 import React, { Component } from 'react';
-import { ComponentProps } from 'smart-builder-sdk';
 
 import HelloWorld, { DataStructure } from './hello-world';
 
@@ -10,8 +10,8 @@ const ScriptMock = ({ ...props }) => (
   </script>
 );
 
-jest.mock('smart-builder-sdk', () => ({
-  ...jest.requireActual('smart-builder-sdk'),
+jest.mock('@unbounce/smart-builder-sdk', () => ({
+  ...jest.requireActual('@unbounce/smart-builder-sdk'),
   Script: ScriptMock,
 }));
 
@@ -42,6 +42,7 @@ const renderComponent = (isButtonSet: boolean) => {
       mode={mode}
       isSelected={false}
       entityId={''}
+      entityDispatch={jest.fn()}
     />,
   );
 };

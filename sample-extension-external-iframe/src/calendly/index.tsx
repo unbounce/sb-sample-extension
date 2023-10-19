@@ -1,5 +1,5 @@
+import { ControlButton, WithControls } from '@unbounce/smart-builder-sdk';
 import React from 'react';
-import { ControlButton, WithControls } from 'smart-builder-sdk';
 import { component, Schema } from 'ub-shared';
 
 import { CalendlyControlComponent } from '../control';
@@ -28,5 +28,5 @@ export const Component = component({
     trackConversion: Schema.formUrl(),
   }),
   Component: CalendlyComponentWithControls,
-  tags: ['swappable', 'conversion', 'newControls', 'isFullWidth', 'isFullHeight'],
+  tags: ['swappable', 'conversion', 'isFullWidth', 'isFullHeight'],
 });
