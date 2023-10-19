@@ -42,6 +42,7 @@ const renderComponent = (isButtonSet: boolean) => {
       mode={mode}
       isSelected={false}
       entityId={''}
+      entityDispatch={jest.fn()}
     />,
   );
 };
