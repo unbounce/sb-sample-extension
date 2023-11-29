@@ -72,6 +72,6 @@
     "styled-components": "^5.3.3"
   },
   "dependencies": {
-    "@unbounce/smart-builder-sdk": "^1.0.22"
+    "@unbounce/smart-builder-sdk": "^1.0.157"
   }
 }
